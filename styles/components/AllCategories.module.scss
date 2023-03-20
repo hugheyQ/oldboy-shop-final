@@ -1,0 +1,48 @@
+@import '@/styles/variables.module.scss';
+
+.categoriesPane {
+	font-size: 15px;
+
+	.categories {
+		.category {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			padding: 0.8em 0;
+		}
+	}
+}
+
+.subCategoriesPane {
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	padding-left: 2em;
+	opacity: 1;
+
+	.subCategory {
+		h2 {
+			font-size: 15px;
+			color: $gray;
+			font-weight: 600;
+			margin-bottom: 10px;
+		}
+
+		.subCategoryLinks {
+			display: flex;
+			flex-direction: column;
+			font-size: 15px;
+			text-transform: capitalize;
+			font-weight: 500;
+
+			& > a {
+				transition: all 0.4s ease-in-out !important;
+				padding: 0.8em 0;
+
+				&:hover {
+					color: $red !important;
+				}
+			}
+		}
+	}
+}

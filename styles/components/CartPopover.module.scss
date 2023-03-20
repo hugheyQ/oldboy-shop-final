@@ -1,0 +1,77 @@
+@import '@/styles/variables.module.scss';
+
+.checkoutLink,
+.cartLink {
+	width: 100%;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 8px 0;
+	border-radius: 3px;
+	transition: all 0.4s ease-in-out;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.checkoutLink {
+	background-color: $red;
+	color: white !important;
+	border: 1px solid $red;
+
+	&:hover {
+		background-color: white;
+		border: 1px solid $red;
+		color: $red !important;
+	}
+}
+
+.cartLink {
+	background-color: white;
+	color: $gray !important;
+	border: 1px solid #b6b6b6;
+
+	&:hover {
+		background-color: #383e47;
+		border: 1px solid #383e47;
+		color: white !important;
+	}
+}
+
+.cartBtn {
+	position: relative;
+	background-color: transparent;
+	padding: 0;
+	border: none;
+	color: $gray;
+
+	&:hover,
+	&:active {
+		background: transparent !important;
+	}
+
+	svg {
+		font-size: 1.5em;
+		color: $gray;
+
+		@media (max-width: 991.98px) {
+			font-size: 1.3em;
+		}
+	}
+
+	span {
+		border: 2px solid white;
+		font-size: 11px;
+		font-weight: 600;
+		height: 22px;
+		width: 22px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		background-color: $blue !important;
+		color: white;
+		position: absolute;
+		right: -15px;
+		top: -9px;
+	}
+}

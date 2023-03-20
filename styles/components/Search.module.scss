@@ -1,0 +1,51 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	// padding: 1em;
+	.header {
+		border-bottom: 1px solid #eff0f5;
+		display: flex;
+
+		.title {
+			font-weight: 700;
+			font-size: 1.1em;
+			text-transform: uppercase;
+
+			.cta {
+				margin-left: 1em;
+			}
+		}
+
+		.closeButton {
+			background-color: #eaf0f5;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			height: 40px;
+			width: 40px;
+			border-radius: 50%;
+			transition: all 0.4s ease-in-out;
+			color: black;
+			border: none;
+			font-size: 1.2em;
+
+			&:hover {
+				background-color: $red !important;
+				color: white !important;
+			}
+		}
+	}
+
+	.body {
+		padding-top: 2em;
+		padding-bottom: 2em;
+		display: flex;
+		flex-direction: column;
+		row-gap: 1em;
+	}
+
+	@media (max-width: 575.98px) {
+		width: 100% !important;
+	}
+}

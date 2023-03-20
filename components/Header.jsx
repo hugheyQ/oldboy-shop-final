@@ -1,0 +1,354 @@
+import { HiOutlineMail, HiOutlineMenuAlt1 } from 'react-icons/hi'
+import { TbPhoneCall } from 'react-icons/tb'
+import { BsCart, BsChevronDown, BsSearch } from 'react-icons/bs'
+import { VscAccount } from 'react-icons/vsc'
+import styles from '@/styles/components/Header.module.scss'
+import '/node_modules/flag-icons/css/flag-icons.min.css'
+import {
+	Nav,
+	Navbar,
+	NavDropdown,
+	Container,
+	Col,
+	Dropdown,
+	Form,
+	Row,
+	Button,
+	ListGroup,
+} from 'react-bootstrap'
+import Link from 'next/link'
+import { useState } from 'react'
+import SearchField from './SearchField'
+import AllCategories from './AllCategories'
+import Cart from './Cart'
+import CartPopover from './CartPopover'
+
+import { Rajdhani, Arimo } from 'next/font/google'
+import Menu from './Menu'
+import Categories from './Categories'
+import Search from './Search'
+
+const rajdhani = Rajdhani({
+	subsets: ['latin'],
+	weight: [
+		// '100',
+		// '200',
+		'300',
+		'400',
+		'500',
+		'600',
+		'700',
+		// '800',
+		// '900',
+	],
+})
+
+const arimo = Arimo({
+	subsets: ['latin'],
+	weight: [
+		// '100',
+		// '200',
+		// '300',
+		'400',
+		'500',
+		'600',
+		'700',
+		// '800',
+		// '900',
+	],
+})
+
+const Header = () => {
+	const [currency, setCurrency] = useState('GH')
+
+	const [showCart, setShowCart] = useState(false)
+	const [showMenu, setShowMenu] = useState(false)
+	const [showCategories, setShowCategories] = useState(false)
+	const [showSearch, setShowSearch] = useState(false)
+	const [searchTerm, setSearchTerm] = useState('')
+
+	const handleCloseCart = () => setShowCart(false)
+	const handleShowCart = () => setShowCart(true)
+
+	const handleMenuClose = () => setShowMenu(false)
+	const handleMenuShow = () => setShowMenu(true)
+
+	const handleCategoriesClose = () => setShowCategories(false)
+	const handleCategoriesShow = () => {
+		setShowCategories(true)
+	}
+
+	const handleSearchClose = () => setShowSearch(false)
+	const handleSearchShow = () => setShowSearch(true)
+
+	return (
+		<div className={`${styles.mainWrapper} ${arimo.className}`}>
+			<Menu
+				show={showMenu}
+				handleClose={handleMenuClose}
+				handleCategoryOpen={handleCategoriesShow}
+			/>
+			<Cart show={showCart} handleClose={handleCloseCart} />
+			<Categories
+				show={showCategories}
+				handleClose={handleCategoriesClose}
+			/>
+			<Search
+				show={showSearch}
+				handleClose={handleSearchClose}
+				setSearchTerm={setSearchTerm}
+				searchTerm={searchTerm}
+			/>
+
+			<div className={styles.topSection}>
+				<Container>
+					<Row>
+						<Col md={5} xl={4}>
+							<ul className={styles.contactLinks}>
+								<li className={styles.link}>
+									<TbPhoneCall />
+									<Link href='tel:0261989626'>026 1989 626</Link>
+								</li>
+								<li className={styles.link}>
+									<HiOutlineMail />
+									<Link href='mailto:support@onlineshop.com'>
+										support@onlineshop.com
+									</Link>
+								</li>
+							</ul>
+						</Col>
+						<Col md={4} xl={4}>
+							<p className={styles.message}>
+								We are open with limited hours and staff.
+							</p>
+						</Col>
+						<Col md={3} xl={4}>
+							{/* <Form.Select
+								className={styles.currencySelector}
+								aria-label='Currency selector'
+								defaultValue={1}
+							>
+								<option value='1'>
+									<i className='fi fi-gr'></i>GH
+								</option>
+								<option value='2'>GBP</option>
+							</Form.Select> */}
+							<Dropdown className={styles.currencySelectorWrapper}>
+								<Dropdown.Toggle>
+									{currency === 'GH' ? (
+										<>
+											<span className='fi fi-gh'></span> GHC
+										</>
+									) : (
+										<>
+											<span className='fi fi-gb'></span> GBP
+										</>
+									)}
+									<BsChevronDown />
+								</Dropdown.Toggle>
+
+								<Dropdown.Menu className={styles.currencyMenu}>
+									<Dropdown.Item
+										href='#'
+										className={styles.currency}
+										onClick={() => setCurrency('GH')}
+									>
+										<span className='fi fi-gh'></span> GHC
+									</Dropdown.Item>
+									<Dropdown.Item
+										href='#'
+										className={styles.currency}
+										onClick={() => setCurrency('GB')}
+									>
+										<span className='fi fi-gb'></span> GBP
+									</Dropdown.Item>
+								</Dropdown.Menu>
+							</Dropdown>
+						</Col>
+					</Row>
+				</Container>
+			</div>
+			<div className={styles.middleSection}>
+				<Container>
+					<Row>
+						<Col xs={4} md={4} className='d-lg-none'>
+							<ul className={styles.actionIcons}>
+								<li>
+									<Link href='#' onClick={handleMenuShow}>
+										<HiOutlineMenuAlt1 />
+									</Link>
+								</li>
+								<li>
+									<Link href='#'>
+										<BsSearch />
+									</Link>
+								</li>
+							</ul>
+						</Col>
+						<Col xs={4} md={4} lg={3} className={styles.left}>
+							<div className={styles.logo}>Logo</div>
+						</Col>
+						<Col lg={6} className={styles.middle}>
+							<SearchField
+								handleSearchShow={handleSearchShow}
+								setSearchTerm={setSearchTerm}
+								searchTerm={searchTerm}
+								activateModal
+							/>
+						</Col>
+						<Col xs={4} md={4} lg={3} className={styles.right}>
+							<ul className={styles.actionIcons}>
+								<li className={styles.offCanvasCartBtn}>
+									<Link
+										href='#'
+										className={styles.cart}
+										onClick={handleShowCart}
+									>
+										<BsCart />
+										<span>3</span>
+									</Link>
+								</li>
+								<li className={styles.popoverCartBtn}>
+									<CartPopover />
+								</li>
+								<li>
+									<Dropdown className={styles.accountButtonsWrapper}>
+										<Dropdown.Toggle>
+											<VscAccount />
+										</Dropdown.Toggle>
+
+										<Dropdown.Menu className={styles.actionButtonsMenu}>
+											<Dropdown.Item href='#/login'>Login</Dropdown.Item>
+											<Dropdown.Item href='#/register'>Register</Dropdown.Item>
+										</Dropdown.Menu>
+									</Dropdown>
+								</li>
+							</ul>
+						</Col>
+					</Row>
+				</Container>
+			</div>
+			<div className={`${styles.bottomSection} ${rajdhani.className}`}>
+				<Container className='position-relative d-flex align-items-center justify-content-between'>
+					<Nav className={styles.navigation}>
+						<Nav.Item className={styles.navigationItem}>
+							<Nav.Link href='/' className={styles.navigationLink}>
+								Home
+							</Nav.Link>
+						</Nav.Item>
+						<Nav.Item className={styles.navigationItem}>
+							<Nav.Link href='#' className={styles.navigationLink}>
+								Categories
+							</Nav.Link>
+							<div
+								className={styles.categoriesWrapper}
+								style={{ gridTemplateColumns: '20% 80%' }}
+							>
+								<AllCategories />
+							</div>
+						</Nav.Item>
+						<Nav.Item className={styles.navigationItem}>
+							<Nav.Link href='#' className={styles.navigationLink}>
+								Networking
+							</Nav.Link>
+							<div className={styles.categoriesWrapper}>
+								<div className={styles.subCategory}>
+									<h2>Network Infrastructure</h2>
+									<Nav className={styles.subCategoryLinks}>
+										<Nav.Link href='#'>Data cable</Nav.Link>
+										<Nav.Link href='#'>Modules and Faceplates</Nav.Link>
+										<Nav.Link href='#'>Network Plugs and Connectors</Nav.Link>
+										<Nav.Link href='#'>Patch Cables</Nav.Link>
+										<Nav.Link href='#'>
+											Patch Panels & Cable Management
+										</Nav.Link>
+									</Nav>
+								</div>
+
+								<div className={styles.subCategory}>
+									<h2>Network cabinets</h2>
+
+									<Nav className={styles.subCategoryLinks}>
+										<Nav.Link href='#'>Cabinet Accessories</Nav.Link>
+										<Nav.Link href='#'>Server and Data Cabinets</Nav.Link>
+									</Nav>
+								</div>
+
+								<div className={styles.subCategory}>
+									<h2>Network devices</h2>
+
+									<Nav className={styles.subCategoryLinks}>
+										<Nav.Link href='#'>Media Converters</Nav.Link>
+										<Nav.Link href='#'>Network Switches</Nav.Link>
+										<Nav.Link href='#'>Powerline</Nav.Link>
+										<Nav.Link href='#'>Routers and Gateways</Nav.Link>
+										<Nav.Link href='#'>
+											Wireless Aerials and Accessories
+										</Nav.Link>
+										<Nav.Link href='#'>Wireless bridges</Nav.Link>
+									</Nav>
+								</div>
+							</div>
+						</Nav.Item>
+						<Nav.Item className={styles.navigationItem}>
+							<Nav.Link href='#' className={styles.navigationLink}>
+								Security
+							</Nav.Link>
+							<div className={styles.categoriesWrapper}>
+								<div className={styles.subCategory}>
+									<h2>Access Control</h2>
+									<Nav className={styles.subCategoryLinks}>
+										<Nav.Link href='#'>Access Control Cable</Nav.Link>
+										<Nav.Link href='#'>Access Control Power Supplies</Nav.Link>
+										<Nav.Link href='#'>Assistance Alarms</Nav.Link>
+										<Nav.Link href='#'>Electronic Locks</Nav.Link>
+										<Nav.Link href='#'>Exit Buttons and Call Points</Nav.Link>
+										<Nav.Link href='#'>Intercoms</Nav.Link>
+									</Nav>
+								</div>
+
+								<div className={styles.subCategory}>
+									<h2>CCTV</h2>
+
+									<Nav className={styles.subCategoryLinks}>
+										<Nav.Link href='#'>CCTV Accessories</Nav.Link>
+										<Nav.Link href='#'>CCTV Cameras</Nav.Link>
+										<Nav.Link href='#'>CCTV Monitors</Nav.Link>
+										<Nav.Link href='#'>CCTV Recorders</Nav.Link>
+									</Nav>
+								</div>
+
+								<div className={styles.subCategory}>
+									<h2>Intruder alarms</h2>
+
+									<Nav className={styles.subCategoryLinks}>
+										<Nav.Link href='#'>Perimeter Detection</Nav.Link>
+										<Nav.Link href='#'>Wired Alarm Systems</Nav.Link>
+										<Nav.Link href='#'>Wireless Alarm Systems</Nav.Link>
+										<Nav.Link href='#'>CCTV Recorders</Nav.Link>
+									</Nav>
+								</div>
+							</div>
+						</Nav.Item>
+						<Nav.Item className={styles.navigationItem}>
+							<Nav.Link href='#' className={styles.navigationLink}>
+								Flash Deal
+							</Nav.Link>
+						</Nav.Item>
+						<Nav.Item className={styles.navigationItem}>
+							<Nav.Link href='#' className={styles.navigationLink}>
+								Contact Us
+							</Nav.Link>
+						</Nav.Item>
+						<Nav.Item className={styles.navigationItem}>
+							<Nav.Link href='#' className={styles.navigationLink}>
+								Blog
+							</Nav.Link>
+						</Nav.Item>
+					</Nav>
+				</Container>
+			</div>
+		</div>
+	)
+}
+export default Header

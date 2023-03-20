@@ -1,0 +1,57 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	display: flex;
+	align-items: center;
+	padding: 1em;
+
+	&:not(:last-child) {
+		border-bottom: 1px solid $lightGray2;
+	}
+
+	.productImage {
+		width: 90px;
+		height: 90px;
+		position: relative;
+		flex: 3;
+
+		img {
+			object-fit: cover;
+		}
+	}
+
+	.productDetails {
+		display: flex;
+		flex-direction: column;
+		flex: 7;
+		row-gap: 0.5em;
+		padding-left: 0.4em;
+
+		.productBrand {
+			color: $lightGray3;
+			font-size: 12px;
+			position: relative;
+			width: max-content;
+
+			&::after {
+				content: '®';
+				font-size: 16px !important;
+				position: absolute;
+				right: -16px;
+				top: -3px;
+			}
+		}
+
+		.productTitle {
+			font-size: 13px;
+			font-weight: 700;
+			color: $blue2;
+		}
+
+		.productSubtotal {
+			color: $gray;
+			font-weight: 700;
+			font-size: 13px;
+		}
+	}
+}

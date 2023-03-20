@@ -1,0 +1,43 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+	.searchIcon {
+		background-color: transparent;
+		border: 1px solid $lightGray2;
+		padding: 1.2em 1em 1.2em 1.3em;
+		border-radius: 5px;
+	}
+
+	.searchInput {
+		padding-left: 0;
+		border: 1px solid $lightGray2;
+		border-left: none;
+		border-right: none;
+		font-size: 15px;
+		font-weight: 400;
+		color: $gray;
+
+		&::placeholder {
+			color: rgb(172, 172, 172);
+			font-weight: 400;
+		}
+
+		&:focus {
+			box-shadow: none;
+			// border-color: $lightGray2;
+		}
+	}
+
+	.searchButton {
+		background-color: $red;
+		border: 1px solid $red;
+		color: white;
+		font-weight: 600;
+		font-size: 14px;
+		padding-left: 2.5em;
+		padding-right: 2.5em;
+		border-radius: 5px;
+		text-transform: uppercase;
+	}
+}
