@@ -4,24 +4,8 @@ import Popover from 'react-bootstrap/Popover'
 import { BsCart } from 'react-icons/bs'
 import styles from '@/styles/components/CartPopover.module.scss'
 import CartItem from './CartItem'
-import Link from 'next/link'
-
-import { Rajdhani } from 'next/font/google'
-
-const rajdhani = Rajdhani({
-	subsets: ['latin'],
-	weight: [
-		// '100',
-		// '200',
-		'300',
-		'400',
-		'500',
-		'600',
-		'700',
-		// '800',
-		// '900',
-	],
-})
+import CustomLink from './CustomLink'
+import data from '@/utils/data'
 
 const popover = (
 	<Popover
@@ -33,8 +17,9 @@ const popover = (
 	>
 		{/* <Popover.Header as='h3'>Shopping Cart</Popover.Header> */}
 		<Popover.Body style={{ padding: 0 }}>
-			<CartItem />
-			<CartItem />
+			{data.products.map((product, i) => (
+				<CartItem key={i} product={product} />
+			))}
 		</Popover.Body>
 		<Popover.Header
 			style={{
@@ -44,14 +29,14 @@ const popover = (
 				rowGap: '.8em',
 				padding: '1.5em 1.8em',
 			}}
-			className={rajdhani.className}
 		>
-			<Link href='/checkout' className={styles.checkoutLink}>
+			<CustomLink href='/checkout' variant='checkout'>
 				Check out now
-			</Link>
-			<Link href='/cart' className={styles.cartLink}>
+			</CustomLink>
+
+			<CustomLink href='/cart' variant='cart'>
 				View Cart
-			</Link>
+			</CustomLink>
 		</Popover.Header>
 	</Popover>
 )

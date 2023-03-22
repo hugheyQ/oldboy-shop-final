@@ -3,6 +3,10 @@
 .mainWrapper {
 	// position: sticky;
 	// top: 0;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	background-color: white;
 
 	.topSection {
 		font-size: 13px;
@@ -160,8 +164,8 @@
 	}
 
 	.middleSection {
-		padding-top: 1.5em;
-		padding-bottom: 1.5em;
+		padding-top: 1.1em;
+		padding-bottom: 1.1em;
 
 		@media (max-width: 991.98px) {
 			padding-top: 1em;

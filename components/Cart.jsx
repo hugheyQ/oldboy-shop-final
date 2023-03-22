@@ -1,9 +1,10 @@
 import styles from '@/styles/components/Cart.module.scss'
-import { Button, Offcanvas } from 'react-bootstrap'
-import { MdClose } from 'react-icons/md'
+import { Offcanvas } from 'react-bootstrap'
 import { Rajdhani } from 'next/font/google'
 import CartItem from './CartItem'
 import Link from 'next/link'
+import CloseButton from './CloseButton'
+import data from '@/utils/data'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
@@ -34,14 +35,12 @@ const Cart = ({ handleClose, show }) => {
 				>
 					Shopping cart
 				</Offcanvas.Title>
-				<Button className={styles.closeButton} onClick={handleClose}>
-					<MdClose />
-				</Button>
+				<CloseButton handleClose={handleClose} />
 			</Offcanvas.Header>
 			<Offcanvas.Body className={styles.body}>
-				<CartItem />
-				<CartItem />
-				<CartItem />
+				{data.products.map((product, i) => (
+					<CartItem key={i} product={product} />
+				))}
 				<div className={`${styles.footer}  ${rajdhani.className}`}>
 					<Link href='/checkout' className={styles.checkoutLink}>
 						Check out now

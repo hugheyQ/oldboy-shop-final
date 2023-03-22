@@ -25,8 +25,9 @@ import CartPopover from './CartPopover'
 
 import { Rajdhani, Arimo } from 'next/font/google'
 import Menu from './Menu'
-import Categories from './Categories'
+import CategoriesMenu from './CategoriesMenu'
 import Search from './Search'
+import data from '@/utils/data'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
@@ -57,6 +58,9 @@ const arimo = Arimo({
 		// '900',
 	],
 })
+
+const networkCat = data.categories[0]
+const securityCat = data.categories[1]
 
 const Header = () => {
 	const [currency, setCurrency] = useState('GH')
@@ -89,7 +93,7 @@ const Header = () => {
 				handleCategoryOpen={handleCategoriesShow}
 			/>
 			<Cart show={showCart} handleClose={handleCloseCart} />
-			<Categories
+			<CategoriesMenu
 				show={showCategories}
 				handleClose={handleCategoriesClose}
 			/>
@@ -242,7 +246,7 @@ const Header = () => {
 							</Nav.Link>
 							<div
 								className={styles.categoriesWrapper}
-								style={{ gridTemplateColumns: '20% 80%' }}
+								style={{ gridTemplateColumns: 'unset' }}
 							>
 								<AllCategories />
 							</div>
@@ -252,42 +256,18 @@ const Header = () => {
 								Networking
 							</Nav.Link>
 							<div className={styles.categoriesWrapper}>
-								<div className={styles.subCategory}>
-									<h2>Network Infrastructure</h2>
-									<Nav className={styles.subCategoryLinks}>
-										<Nav.Link href='#'>Data cable</Nav.Link>
-										<Nav.Link href='#'>Modules and Faceplates</Nav.Link>
-										<Nav.Link href='#'>Network Plugs and Connectors</Nav.Link>
-										<Nav.Link href='#'>Patch Cables</Nav.Link>
-										<Nav.Link href='#'>
-											Patch Panels & Cable Management
-										</Nav.Link>
-									</Nav>
-								</div>
-
-								<div className={styles.subCategory}>
-									<h2>Network cabinets</h2>
-
-									<Nav className={styles.subCategoryLinks}>
-										<Nav.Link href='#'>Cabinet Accessories</Nav.Link>
-										<Nav.Link href='#'>Server and Data Cabinets</Nav.Link>
-									</Nav>
-								</div>
-
-								<div className={styles.subCategory}>
-									<h2>Network devices</h2>
-
-									<Nav className={styles.subCategoryLinks}>
-										<Nav.Link href='#'>Media Converters</Nav.Link>
-										<Nav.Link href='#'>Network Switches</Nav.Link>
-										<Nav.Link href='#'>Powerline</Nav.Link>
-										<Nav.Link href='#'>Routers and Gateways</Nav.Link>
-										<Nav.Link href='#'>
-											Wireless Aerials and Accessories
-										</Nav.Link>
-										<Nav.Link href='#'>Wireless bridges</Nav.Link>
-									</Nav>
-								</div>
+								{networkCat.subCategories.map((subCategory, i) => (
+									<div key={i} className={styles.subCategory}>
+										<h2>{subCategory.title}</h2>
+										<Nav className={styles.subCategoryLinks}>
+											{subCategory.links.map((link, i) => (
+												<Nav.Link key={i} href={`/${link.slug}`}>
+													{link.title}
+												</Nav.Link>
+											))}
+										</Nav>
+									</div>
+								))}
 							</div>
 						</Nav.Item>
 						<Nav.Item className={styles.navigationItem}>
@@ -295,39 +275,18 @@ const Header = () => {
 								Security
 							</Nav.Link>
 							<div className={styles.categoriesWrapper}>
-								<div className={styles.subCategory}>
-									<h2>Access Control</h2>
-									<Nav className={styles.subCategoryLinks}>
-										<Nav.Link href='#'>Access Control Cable</Nav.Link>
-										<Nav.Link href='#'>Access Control Power Supplies</Nav.Link>
-										<Nav.Link href='#'>Assistance Alarms</Nav.Link>
-										<Nav.Link href='#'>Electronic Locks</Nav.Link>
-										<Nav.Link href='#'>Exit Buttons and Call Points</Nav.Link>
-										<Nav.Link href='#'>Intercoms</Nav.Link>
-									</Nav>
-								</div>
-
-								<div className={styles.subCategory}>
-									<h2>CCTV</h2>
-
-									<Nav className={styles.subCategoryLinks}>
-										<Nav.Link href='#'>CCTV Accessories</Nav.Link>
-										<Nav.Link href='#'>CCTV Cameras</Nav.Link>
-										<Nav.Link href='#'>CCTV Monitors</Nav.Link>
-										<Nav.Link href='#'>CCTV Recorders</Nav.Link>
-									</Nav>
-								</div>
-
-								<div className={styles.subCategory}>
-									<h2>Intruder alarms</h2>
-
-									<Nav className={styles.subCategoryLinks}>
-										<Nav.Link href='#'>Perimeter Detection</Nav.Link>
-										<Nav.Link href='#'>Wired Alarm Systems</Nav.Link>
-										<Nav.Link href='#'>Wireless Alarm Systems</Nav.Link>
-										<Nav.Link href='#'>CCTV Recorders</Nav.Link>
-									</Nav>
-								</div>
+								{securityCat.subCategories.map((subCategory, i) => (
+									<div key={i} className={styles.subCategory}>
+										<h2>{subCategory.title}</h2>
+										<Nav className={styles.subCategoryLinks}>
+											{subCategory.links.map((link, i) => (
+												<Nav.Link key={i} href={`/${link.slug}`}>
+													{link.title}
+												</Nav.Link>
+											))}
+										</Nav>
+									</div>
+								))}
 							</div>
 						</Nav.Item>
 						<Nav.Item className={styles.navigationItem}>

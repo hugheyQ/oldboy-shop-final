@@ -6,6 +6,7 @@ import { GrInfo } from 'react-icons/gr'
 import { BiCategoryAlt } from 'react-icons/bi'
 import styles from '@/styles/components/Menu.module.scss'
 import { Rajdhani } from 'next/font/google'
+import CloseButton from './CloseButton'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
@@ -34,9 +35,7 @@ const Menu = ({ show, handleClose, handleCategoryOpen }) => {
 				className={`${styles.header} ${rajdhani.className}`}
 			>
 				<Offcanvas.Title className={styles.title}>Menu</Offcanvas.Title>
-				<Button className={styles.closeButton} onClick={handleClose}>
-					<MdClose />
-				</Button>
+				<CloseButton handleClose={handleClose} />
 			</Offcanvas.Header>
 			<Offcanvas.Body className={`${styles.body} ${rajdhani.className}`}>
 				<Nav className={styles.navigation}>

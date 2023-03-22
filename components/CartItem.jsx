@@ -18,20 +18,18 @@ const arimo = Arimo({
 	],
 })
 
-const CartItem = () => {
+const CartItem = ({ product }) => {
 	return (
 		<div className={`${styles.mainWrapper} ${arimo.className}`}>
 			<div className={styles.productImage}>
-				<Image src='/images/1.jpg' alt='' fill />
+				<Image src={product.image} alt={product.title} fill />
 			</div>
 			<div className={styles.productDetails}>
-				<span className={styles.productBrand}>Samsung</span>
-				<span className={styles.productTitle}>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-				</span>
+				<span className={styles.productBrand}>{product.brand}</span>
+				<span className={styles.productTitle}>{product.title}</span>
 				<div className={styles.productSubtotal}>
 					<span className={styles.productQuantity}>2</span> X{' '}
-					<span className={styles.productPrice}>GHC 200.00</span>
+					<span className={styles.productPrice}>GHC {product.price}</span>
 				</div>
 			</div>
 		</div>

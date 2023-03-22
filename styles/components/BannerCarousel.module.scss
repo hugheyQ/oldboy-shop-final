@@ -1,0 +1,17 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	.carouselItem {
+		height: calc(100vh - 189.4px);
+		position: relative;
+
+		.carouselImage {
+			display: block;
+			width: 100%;
+			object-fit: cover;
+		}
+		.carouselCaption {
+			animation: animate-carousel-caption 1s fowards;
+		}
+	}
+}

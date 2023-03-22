@@ -1,57 +1,50 @@
 import styles from '@/styles/components/AllCategories.module.scss'
+import data from '@/utils/data'
 import { Col, ListGroup, Nav, Row, Tab } from 'react-bootstrap'
 
 import { AiOutlineRight } from 'react-icons/ai'
 
+const { categories } = data
+
 const AllCategories = () => {
 	return (
-		<>
-			<div className={styles.categoriesPane}>
-				<ListGroup variant='flush' className={styles.categories}>
-					<ListGroup.Item className={styles.category}>
-						Networking <AiOutlineRight />
-					</ListGroup.Item>
-					<ListGroup.Item className={styles.category}>
-						Security <AiOutlineRight />
-					</ListGroup.Item>
-				</ListGroup>
-			</div>
-
-			<div className={styles.subCategoriesPane}>
-				<div className={styles.subCategory}>
-					<h2>Network Infrastructure</h2>
-					<Nav className={styles.subCategoryLinks}>
-						<Nav.Link href='#'>Data cable</Nav.Link>
-						<Nav.Link href='#'>Modules and Faceplates</Nav.Link>
-						<Nav.Link href='#'>Network Plugs and Connectors</Nav.Link>
-						<Nav.Link href='#'>Patch Cables</Nav.Link>
-						<Nav.Link href='#'>Patch Panels & Cable Management</Nav.Link>
+		<Tab.Container
+			defaultActiveKey={categories[0].title}
+			className={styles.mainWrapper}
+		>
+			<Row>
+				<Col sm={3}>
+					<Nav variant='pills' className='custom-navigation'>
+						{categories.map((category, i) => (
+							<Nav.Item key={i}>
+								<Nav.Link eventKey={category.title}>
+									<span>{category.title}</span> <AiOutlineRight />
+								</Nav.Link>
+							</Nav.Item>
+						))}
 					</Nav>
-				</div>
-
-				<div className={styles.subCategory}>
-					<h2>Network cabinets</h2>
-
-					<Nav className={styles.subCategoryLinks}>
-						<Nav.Link href='#'>Cabinet Accessories</Nav.Link>
-						<Nav.Link href='#'>Server and Data Cabinets</Nav.Link>
-					</Nav>
-				</div>
-
-				<div className={styles.subCategory}>
-					<h2>Network devices</h2>
-
-					<Nav className={styles.subCategoryLinks}>
-						<Nav.Link href='#'>Media Converters</Nav.Link>
-						<Nav.Link href='#'>Network Switches</Nav.Link>
-						<Nav.Link href='#'>Powerline</Nav.Link>
-						<Nav.Link href='#'>Routers and Gateways</Nav.Link>
-						<Nav.Link href='#'>Wireless Aerials and Accessories</Nav.Link>
-						<Nav.Link href='#'>Wireless bridges</Nav.Link>
-					</Nav>
-				</div>
-			</div>
-		</>
+				</Col>
+				<Col sm={9}>
+					<Tab.Content className={styles.subCategoriesContainer}>
+						{categories.map(category =>
+							category.subCategories.map((subCategory, subCatIndex) => (
+								<Tab.Pane eventKey={category.title} key={subCatIndex}>
+									<div className={styles.subCategory}>
+										<h2>{subCategory.title}</h2>
+										{subCategory.links.map((link, linkIndex) => (
+											<Nav className={styles.subCategoryLinks} key={linkIndex}>
+												<Nav.Link href={`/${link.slug}`}>{link.title}</Nav.Link>
+											</Nav>
+										))}
+									</div>
+								</Tab.Pane>
+							))
+						)}
+						{/* <Tab.Pane eventKey='second'>second</Tab.Pane> */}
+					</Tab.Content>
+				</Col>
+			</Row>
+		</Tab.Container>
 	)
 }
 export default AllCategories

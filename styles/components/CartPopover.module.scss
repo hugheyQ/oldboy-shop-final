@@ -31,8 +31,8 @@
 	border: 1px solid #b6b6b6;
 
 	&:hover {
-		background-color: #383e47;
-		border: 1px solid #383e47;
+		background-color: $gray;
+		border: 1px solid $gray;
 		color: white !important;
 	}
 }
