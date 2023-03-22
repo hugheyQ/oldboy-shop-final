@@ -13,19 +13,27 @@
 @import '@/styles/variables.module.scss';
 
 .mainWrapper {
-	bottom: 100px;
+	bottom: 50px;
 	position: fixed;
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	z-index: 6;
-	right: 30px;
+	right: 20px;
 	opacity: 0;
-	transform: translate(0, 15em);
+	transform: translate(0, -15em);
 	transition: all 0.4s ease-in-out;
-	background-color: $blue;
-	height: 50px;
-	width: 50px;
-	border-radius: 50%;
-	border: 1px solid $blue;
+	background-color: rgba($blue, $alpha: 0.6);
+	// background-color: $blue;
+	height: 45px;
+	width: 45px;
+	border-radius: 5px;
+	border: 1px solid rgba($blue, $alpha: 0.6);
+
+	@media (max-width: 767.98px) {
+		height: 40px;
+		width: 40px;
+	}
 
 	&.show {
 		opacity: 1;
@@ -33,11 +41,11 @@
 	}
 
 	&:hover {
-		background-color: $gray;
-		border-color: $gray;
+		background-color: rgba($blue, $alpha: 1);
+		border-color: rgba($blue, $alpha: 1);
 	}
 
 	svg {
-		font-size: 1.5em;
+		font-size: 1em;
 	}
 }

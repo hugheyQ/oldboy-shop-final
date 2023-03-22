@@ -181,24 +181,18 @@
 			width: max-content;
 			column-gap: 1.3em;
 
-			@media (max-width: 991.98px) {
-				column-gap: 1em;
-			}
-
-			.offCanvasCartBtn {
-				@media (min-width: 992px) {
-					display: none;
-				}
-			}
-
-			.popoverCartBtn {
-				@media (max-width: 991.98px) {
-					display: none;
-				}
+			.menuButton,
+			.searchButton {
+				padding: 0;
+				background-color: white;
+				border: none;
 			}
 
 			.cart {
 				position: relative;
+				padding: 0;
+				background-color: white;
+				border: none;
 
 				span {
 					border: 2px solid white;
@@ -215,6 +209,22 @@
 					position: absolute;
 					right: -15px;
 					top: -9px;
+				}
+			}
+
+			@media (max-width: 991.98px) {
+				column-gap: 1em;
+			}
+
+			.offCanvasCartBtn {
+				@media (min-width: 992px) {
+					display: none;
+				}
+			}
+
+			.popoverCartBtn {
+				@media (max-width: 991.98px) {
+					display: none;
 				}
 			}
 

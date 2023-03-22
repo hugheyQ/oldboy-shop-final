@@ -136,16 +136,6 @@ const Header = () => {
 							</p>
 						</Col>
 						<Col md={3} xl={4}>
-							{/* <Form.Select
-								className={styles.currencySelector}
-								aria-label='Currency selector'
-								defaultValue={1}
-							>
-								<option value='1'>
-									<i className='fi fi-gr'></i>GH
-								</option>
-								<option value='2'>GBP</option>
-							</Form.Select> */}
 							<Dropdown className={styles.currencySelectorWrapper}>
 								<Dropdown.Toggle>
 									{currency === 'GH' ? (
@@ -187,14 +177,20 @@ const Header = () => {
 						<Col xs={4} md={4} className='d-lg-none'>
 							<ul className={styles.actionIcons}>
 								<li>
-									<Link href='#' onClick={handleMenuShow}>
+									<Button
+										onClick={handleMenuShow}
+										className={styles.menuButton}
+									>
 										<HiOutlineMenuAlt1 />
-									</Link>
+									</Button>
 								</li>
 								<li>
-									<Link href='#'>
+									<Button
+										className={styles.searchButton}
+										onClick={handleSearchShow}
+									>
 										<BsSearch />
-									</Link>
+									</Button>
 								</li>
 							</ul>
 						</Col>
@@ -212,14 +208,10 @@ const Header = () => {
 						<Col xs={4} md={4} lg={3} className={styles.right}>
 							<ul className={styles.actionIcons}>
 								<li className={styles.offCanvasCartBtn}>
-									<Link
-										href='#'
-										className={styles.cart}
-										onClick={handleShowCart}
-									>
+									<Button className={styles.cart} onClick={handleShowCart}>
 										<BsCart />
 										<span>3</span>
-									</Link>
+									</Button>
 								</li>
 								<li className={styles.popoverCartBtn}>
 									<CartPopover />
