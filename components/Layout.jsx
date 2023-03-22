@@ -2,6 +2,7 @@ import styles from '@/styles/components/Layout.module.scss'
 import Head from 'next/head'
 import Footer from './Footer'
 import Header from './Header'
+import ScrollBackToTopButton from './ScrollBackToTopButton'
 
 const Layout = ({ children, title }) => {
 	return (
@@ -17,6 +18,7 @@ const Layout = ({ children, title }) => {
 			</Head>
 			<div className={styles.mainWrapper}>
 				<Header />
+				<ScrollBackToTopButton />
 				{children}
 				<Footer />
 			</div>

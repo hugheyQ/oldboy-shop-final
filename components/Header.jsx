@@ -17,7 +17,7 @@ import {
 	ListGroup,
 } from 'react-bootstrap'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SearchField from './SearchField'
 import AllCategories from './AllCategories'
 import Cart from './Cart'
@@ -31,32 +31,12 @@ import data from '@/utils/data'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
-	weight: [
-		// '100',
-		// '200',
-		'300',
-		'400',
-		'500',
-		'600',
-		'700',
-		// '800',
-		// '900',
-	],
+	weight: ['300', '400', '500', '600', '700'],
 })
 
 const arimo = Arimo({
 	subsets: ['latin'],
-	weight: [
-		// '100',
-		// '200',
-		// '300',
-		'400',
-		'500',
-		'600',
-		'700',
-		// '800',
-		// '900',
-	],
+	weight: ['400', '500', '600', '700'],
 })
 
 const networkCat = data.categories[0]
@@ -85,8 +65,37 @@ const Header = () => {
 	const handleSearchClose = () => setShowSearch(false)
 	const handleSearchShow = () => setShowSearch(true)
 
+	const [scrolled, setScrolled] = useState(false)
+	const [hide, setHide] = useState(false)
+
+	const handleScroll = () => {
+		const scrollPosition = window.scrollY // => scroll position
+		if (scrollPosition > 300) {
+			setScrolled(true)
+		} else {
+			setScrolled(false)
+		}
+
+		if (scrollPosition > 200) {
+			setHide(true)
+		} else {
+			setHide(false)
+		}
+	}
+	useEffect(() => {
+		handleScroll()
+		window.addEventListener('scroll', handleScroll)
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
+
 	return (
-		<div className={`${styles.mainWrapper} ${arimo.className}`}>
+		<div
+			className={`${styles.mainWrapper} ${arimo.className} ${
+				scrolled ? styles.sticky : ''
+			}`}
+		>
 			<Menu
 				show={showMenu}
 				handleClose={handleMenuClose}
@@ -104,7 +113,7 @@ const Header = () => {
 				searchTerm={searchTerm}
 			/>
 
-			<div className={styles.topSection}>
+			<div className={`${styles.topSection} ${hide ? 'd-none' : ''}`}>
 				<Container>
 					<Row>
 						<Col md={5} xl={4}>
