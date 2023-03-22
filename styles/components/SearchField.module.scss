@@ -39,5 +39,10 @@
 		padding-right: 2.5em;
 		border-radius: 5px;
 		text-transform: uppercase;
+
+		@media (max-width: 575.98px) {
+			padding-left: 2em;
+			padding-right: 2em;
+		}
 	}
 }
