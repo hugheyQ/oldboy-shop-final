@@ -89,21 +89,21 @@ const ProductsShowcase = () => {
 				<Tab eventKey='new' title='New products'>
 					<Slider {...settings}>
 						{products.map((product, i) => (
-							<Product product={product} />
+							<Product key={i} product={product} />
 						))}
 					</Slider>
 				</Tab>
 				<Tab eventKey='best' title='Best sellers'>
 					<Slider {...settings}>
 						{products.map((product, i) => (
-							<Product product={product} />
+							<Product key={i} product={product} />
 						))}
 					</Slider>
 				</Tab>
 				<Tab eventKey='featured' title='Featured products'>
 					<Slider {...settings}>
 						{products.map((product, i) => (
-							<Product product={product} />
+							<Product key={i} product={product} />
 						))}
 					</Slider>
 				</Tab>
