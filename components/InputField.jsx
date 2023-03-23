@@ -28,9 +28,7 @@ const InputField = ({
 				required={required}
 			/>
 			{error && (
-				<Form.Text className={styles.message}>
-					We'll never share your email with anyone else.
-				</Form.Text>
+				<Form.Text className={styles.message}>{error}</Form.Text>
 			)}
 		</Form.Group>
 	)
