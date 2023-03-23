@@ -1,0 +1,151 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	display: flex;
+	flex-direction: column;
+	// width: 210px;
+	overflow: hidden !important;
+
+	.productImage {
+		// width: 210px;
+		height: 210px;
+		position: relative;
+		overflow: hidden !important;
+
+		.statusWrapper {
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: flex;
+			flex-direction: column;
+			z-index: 5;
+			align-items: flex-end;
+			row-gap: 0.4em;
+
+			span {
+				font-size: 12px;
+				font-weight: 500;
+				color: white;
+				display: inline-block;
+				text-align: center;
+				border-radius: 3px;
+				padding: 1px 9px;
+
+				&.bestSeller {
+					background-color: #e56d00;
+				}
+
+				&.new {
+					background-color: #6aa004;
+				}
+
+				&.sale {
+					background-color: #c00011;
+				}
+
+				&.soldOut {
+					background-color: #898989;
+				}
+			}
+		}
+
+		img {
+			object-fit: contain;
+		}
+	}
+
+	.productDetails {
+		display: flex;
+		flex-direction: column;
+		padding-top: 20px;
+
+		.productBrand {
+			color: $lightGray3;
+			font-size: 12px;
+			position: relative;
+			width: max-content;
+			margin-bottom: 10px;
+			text-transform: capitalize;
+			font-weight: 400;
+
+			&::after {
+				content: '®';
+				font-size: 16px !important;
+				position: absolute;
+				right: -16px;
+				top: -3px;
+			}
+		}
+
+		.productTitle {
+			font-size: 13px;
+			font-weight: 700;
+			color: $blue2;
+			// 	margin-bottom: 12px;
+		}
+
+		.ratingWrapper {
+			display: flex;
+			align-items: flex-start;
+			column-gap: 0.3em;
+			margin-top: 15px;
+
+			svg {
+				color: #e2e2e2;
+				font-size: 1.1em;
+			}
+		}
+
+		.pricesBlock {
+			font-weight: 700;
+			font-size: 14px;
+			margin-top: 15px;
+			display: flex;
+			align-items: center;
+			column-gap: 0.6em;
+
+			.oldPrice {
+				color: #999999;
+				text-decoration: line-through;
+			}
+
+			.price {
+				color: $gray;
+
+				&.discounted {
+					color: $red;
+				}
+			}
+		}
+
+		.addToCartButton {
+			margin-top: 17px;
+			width: 100%;
+			display: block;
+			color: #373e46;
+			border-color: #808287;
+			background-color: white;
+			box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05);
+			border-radius: 3px;
+			text-transform: uppercase;
+			font-weight: 700;
+			text-align: center;
+			transition: all 0.4s ease-in-out;
+			border: 1px solid #b6b6b6;
+			padding: 9px;
+
+			&:hover {
+				color: #fff;
+				border-color: $red;
+				background-color: $red;
+			}
+
+			&.outOfStock {
+				background-color: #f7f7f7;
+				border-color: #f7f7f7;
+				cursor: not-allowed !important;
+				color: #999;
+			}
+		}
+	}
+}

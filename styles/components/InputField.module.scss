@@ -1,0 +1,24 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	.label {
+		font-size: 14px;
+		color: $gray;
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	.input {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		border-radius: 3px;
+		border: 1px solid rgb(204, 207, 214);
+		transition: all 0.4s ease-in-out;
+		color: #666666;
+
+		&:focus {
+			box-shadow: none;
+			border-color: rgb(153, 153, 153);
+		}
+	}
+}

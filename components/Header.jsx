@@ -28,6 +28,7 @@ import Menu from './Menu'
 import CategoriesMenu from './CategoriesMenu'
 import Search from './Search'
 import data from '@/utils/data'
+import LoginOffCanvas from './LoginOffCanvas'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
@@ -49,6 +50,7 @@ const Header = () => {
 	const [showMenu, setShowMenu] = useState(false)
 	const [showCategories, setShowCategories] = useState(false)
 	const [showSearch, setShowSearch] = useState(false)
+	const [showLogin, setShowLogin] = useState(false)
 	const [searchTerm, setSearchTerm] = useState('')
 
 	const handleCloseCart = () => setShowCart(false)
@@ -64,6 +66,9 @@ const Header = () => {
 
 	const handleSearchClose = () => setShowSearch(false)
 	const handleSearchShow = () => setShowSearch(true)
+
+	const handleLoginClose = () => setShowLogin(false)
+	const handleLoginShow = () => setShowLogin(true)
 
 	const [scrolled, setScrolled] = useState(false)
 	const [hide, setHide] = useState(false)
@@ -112,6 +117,8 @@ const Header = () => {
 				setSearchTerm={setSearchTerm}
 				searchTerm={searchTerm}
 			/>
+
+			<LoginOffCanvas show={showLogin} handleClose={handleLoginClose} />
 
 			<div className={`${styles.topSection} ${hide ? 'd-none' : ''}`}>
 				<Container>
@@ -213,11 +220,11 @@ const Header = () => {
 										<span>3</span>
 									</Button>
 								</li>
-								<li className={styles.popoverCartBtn}>
+								{/* <li className={styles.popoverCartBtn}>
 									<CartPopover />
-								</li>
+								</li> */}
 								<li>
-									<Dropdown className={styles.accountButtonsWrapper}>
+									{/* <Dropdown className={styles.accountButtonsWrapper}>
 										<Dropdown.Toggle>
 											<VscAccount />
 										</Dropdown.Toggle>
@@ -226,7 +233,13 @@ const Header = () => {
 											<Dropdown.Item href='#/login'>Login</Dropdown.Item>
 											<Dropdown.Item href='#/register'>Register</Dropdown.Item>
 										</Dropdown.Menu>
-									</Dropdown>
+									</Dropdown> */}
+									<Button
+										onClick={handleLoginShow}
+										className={styles.accountButton}
+									>
+										<VscAccount />
+									</Button>
 								</li>
 							</ul>
 						</Col>

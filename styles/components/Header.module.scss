@@ -216,11 +216,11 @@
 				column-gap: 1em;
 			}
 
-			.offCanvasCartBtn {
-				@media (min-width: 992px) {
-					display: none;
-				}
-			}
+			// .offCanvasCartBtn {
+			// 	@media (min-width: 992px) {
+			// 		display: none;
+			// 	}
+			// }
 
 			.popoverCartBtn {
 				@media (max-width: 991.98px) {
@@ -237,40 +237,46 @@
 				// }
 			}
 
-			.accountButtonsWrapper {
-				button {
-					background: transparent;
-					color: $gray;
-					border: none;
-					padding: 0;
+			// .accountButtonsWrapper {
+			// 	button {
+			// 		background: transparent;
+			// 		color: $gray;
+			// 		border: none;
+			// 		padding: 0;
 
-					&::after {
-						display: none;
-					}
-				}
+			// 		&::after {
+			// 			display: none;
+			// 		}
+			// 	}
 
-				.actionButtonsMenu {
-					padding: 0;
-					border-radius: 0;
-					font-size: 15px;
-					font-weight: 600;
-					color: $gray;
-					border: 1px solid $lightGray2;
+			// 	.actionButtonsMenu {
+			// 		padding: 0;
+			// 		border-radius: 0;
+			// 		font-size: 15px;
+			// 		font-weight: 600;
+			// 		color: $gray;
+			// 		border: 1px solid $lightGray2;
 
-					a {
-						padding-top: 0.5em;
-						padding-bottom: 0.5em;
-						font-weight: 500;
+			// 		a {
+			// 			padding-top: 0.5em;
+			// 			padding-bottom: 0.5em;
+			// 			font-weight: 500;
 
-						&:first-child {
-							border-bottom: 1px solid $lightGray2;
-						}
+			// 			&:first-child {
+			// 				border-bottom: 1px solid $lightGray2;
+			// 			}
 
-						&:hover {
-							background-color: $lightGray;
-						}
-					}
-				}
+			// 			&:hover {
+			// 				background-color: $lightGray;
+			// 			}
+			// 		}
+			// 	}
+			// }
+
+			.accountButton {
+				background-color: white;
+				padding: 0;
+				border: none;
 			}
 		}
 
