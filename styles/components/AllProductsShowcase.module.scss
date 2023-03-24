@@ -7,7 +7,7 @@
 	border: 1px solid rgb(204, 207, 214);
 	text-transform: uppercase;
 	font-weight: 700;
-	font-size: 17px;
+	font-size: 16px;
 	margin-bottom: 3em !important;
 
 	&:focus {
@@ -15,7 +15,7 @@
 		border-color: rgb(153, 153, 153);
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: 575.98px) {
 		display: none;
 	}
 }

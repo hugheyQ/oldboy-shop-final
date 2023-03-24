@@ -218,6 +218,15 @@ ul {
 	padding-bottom: 0.1em !important;
 	margin-bottom: 2em !important;
 
+	&.specific {
+		.nav-item {
+			.nav-link {
+				font-size: 16px;
+				padding-bottom: 0.5em;
+			}
+		}
+	}
+
 	.nav-item {
 		.nav-link {
 			border: none;
@@ -238,6 +247,10 @@ ul {
 			position: relative;
 			transition: all 0.4s ease-out;
 			// overflow: hidden;
+
+			@media (max-width: 767.98px) {
+				font-size: 16px;
+			}
 
 			&.active {
 				color: $gray;
@@ -284,4 +297,29 @@ ul {
 }
 .slick-list {
 	margin: 0 -10px;
+}
+
+.slick-dots {
+	bottom: -45px !important;
+
+	& li {
+		margin: 0 !important;
+		&.slick-active button:before {
+			background-color: #9ea0a4 !important;
+			// border: 1px solid #323232 !important;
+		}
+
+		button:before {
+			font-family: unset !important;
+			font-size: 0px !important;
+			background-color: white !important;
+			border-radius: 50% !important;
+			color: white !important;
+			border: 1px solid #9ea0a4 !important;
+			opacity: 1 !important;
+			width: 10px !important;
+			height: 10px !important;
+			padding: 0 !important;
+		}
+	}
 }

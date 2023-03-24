@@ -2,7 +2,8 @@ import BannerCarousel from '@/components/BannerCarousel'
 import Layout from '@/components/Layout'
 import { Container } from 'react-bootstrap'
 import styles from '@/styles/pages/Home.module.scss'
-import ProductsShowcase from '@/components/ProductsShowcase'
+import AllProductsShowcase from '@/components/AllProductsShowcase'
+import SpecificProductsShowcase from '@/components/SpecificProductsShowcase'
 
 export default function Home() {
 	return (
@@ -11,7 +12,13 @@ export default function Home() {
 				<BannerCarousel />
 				<section className={styles.section1}>
 					<Container>
-						<ProductsShowcase />
+						<AllProductsShowcase />
+					</Container>
+				</section>
+
+				<section className={styles.section2}>
+					<Container>
+						<SpecificProductsShowcase />
 					</Container>
 				</section>
 			</main>

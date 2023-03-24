@@ -1,4 +1,4 @@
-import styles from '@/styles/components/ProductsShowcase.module.scss'
+import styles from '@/styles/components/AllProductsShowcase.module.scss'
 import data from '@/utils/data'
 import { Arimo, Rajdhani } from 'next/font/google'
 import { useState } from 'react'
@@ -18,7 +18,7 @@ const arimo = Arimo({
 
 const { products } = data
 
-const ProductsShowcase = () => {
+const AllProductsShowcase = () => {
 	const [key, setKey] = useState('new')
 
 	const settings = {
@@ -29,6 +29,9 @@ const ProductsShowcase = () => {
 		slidesToScroll: 3,
 		swipeToSlide: true,
 		autoplay: true,
+		autoplaySpeed: 4500,
+		pauseOnFocus: true,
+
 		responsive: [
 			{
 				breakpoint: 1199.98,
@@ -84,7 +87,7 @@ const ProductsShowcase = () => {
 				id='controlled-tab-example'
 				activeKey={key}
 				onSelect={k => setKey(k)}
-				className={`showcase-navigation ${rajdhani.className} d-none d-md-flex`}
+				className={`showcase-navigation ${rajdhani.className} d-none d-sm-flex`}
 			>
 				<Tab eventKey='new' title='New products'>
 					<Slider {...settings}>
@@ -111,4 +114,4 @@ const ProductsShowcase = () => {
 		</>
 	)
 }
-export default ProductsShowcase
+export default AllProductsShowcase

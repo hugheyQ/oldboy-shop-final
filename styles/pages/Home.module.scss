@@ -1,8 +1,24 @@
 .mainWrapper {
 	min-height: 300vh;
+	overflow: hidden;
 
 	.section1 {
 		padding-top: 8em;
-		overflow: hidden;
+		padding-bottom: 3em;
+
+		@media (max-width: 767.98px) {
+			padding-top: 3em;
+		}
+		// overflow: hidden;
+	}
+
+	.section2 {
+		padding-top: 8em;
+		padding-bottom: 3em;
+
+		@media (max-width: 767.98px) {
+			padding-top: 3em;
+		}
+		// overflow: hidden;
 	}
 }
