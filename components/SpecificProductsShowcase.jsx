@@ -1,8 +1,10 @@
 import styles from '@/styles/components/SpecificProductsShowcase.module.scss'
 import data from '@/utils/data'
 import { Arimo, Rajdhani } from 'next/font/google'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
-import { Form, Tab, Tabs } from 'react-bootstrap'
+import { Button, Form, Nav, Tab, Tabs } from 'react-bootstrap'
 import Slider from 'react-slick'
 import Product from './Product'
 
@@ -16,12 +18,14 @@ const arimo = Arimo({
 	weight: ['400', '500', '600', '700'],
 })
 
-const { products } = data
-
-const SpecificProductsShowcase = () => {
+const SpecificProductsShowcase = ({
+	title,
+	subCategories,
+	products,
+}) => {
 	const [key, setKey] = useState('new')
 
-	const settings = {
+	const settings1 = {
 		dots: true,
 		infinite: true,
 		speed: 500,
@@ -36,8 +40,8 @@ const SpecificProductsShowcase = () => {
 			{
 				breakpoint: 1199.98,
 				settings: {
-					slidesToShow: 4,
-					slidesToScroll: 4,
+					slidesToShow: 2,
+					slidesToScroll: 2,
 					infinite: true,
 					dots: true,
 				},
@@ -45,8 +49,8 @@ const SpecificProductsShowcase = () => {
 			{
 				breakpoint: 991.98,
 				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 3,
+					slidesToShow: 2,
+					slidesToScroll: 2,
 					infinite: true,
 					dots: true,
 				},
@@ -72,10 +76,22 @@ const SpecificProductsShowcase = () => {
 		],
 	}
 
+	const settings2 = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		swipeToSlide: true,
+		autoplay: true,
+		autoplaySpeed: 4500,
+		pauseOnFocus: true,
+	}
+
 	return (
 		<div className='position-relative'>
 			<h2 className={`${styles.heading} ${rajdhani.className}`}>
-				Networking
+				{title}
 			</h2>
 			<Form.Select
 				onChange={e => setKey(e.target.value)}
@@ -87,23 +103,54 @@ const SpecificProductsShowcase = () => {
 				<option value='featured'>Featured Products</option>
 				<option value='popular'>Most Popular</option>
 			</Form.Select>
+
+			<div className={styles.categoryCardSliderMenu}>
+				<h4 className={rajdhani.className}>{title}</h4>
+				<Nav className={`${styles.navigation} ${arimo.className}`}>
+					{subCategories.map((subCategory, i) => (
+						<Nav.Link key={i} href='#' className={styles.navigationLink}>
+							{subCategory.title}
+						</Nav.Link>
+					))}
+				</Nav>
+
+				<Link
+					href='#'
+					className={`${styles.shopNowButton} ${rajdhani.className}`}
+				>
+					Shop Now
+				</Link>
+			</div>
+
+			<Slider {...settings2} className='category-card-slider'>
+				<div>
+					<Image src='/images/networking1.jpg' fill alt='' />
+				</div>
+				<div>
+					<Image src='/images/networking2.jpg' fill alt='' />
+				</div>
+				<div>
+					<Image src='/images/networking3.jpg' fill alt='' />
+				</div>
+			</Slider>
+
 			<Tabs
 				id='controlled-tab-example'
 				activeKey={key}
 				onSelect={k => setKey(k)}
 				className={`showcase-navigation specific ${rajdhani.className} d-none d-md-flex justify-content-end`}
 			>
-				<Slider {...settings}>
+				{/* <Slider {...settings1}>
 					{products.map((product, i) => (
 						<Product key={i} product={product} />
 					))}
-				</Slider>
+				</Slider> */}
 				<Tab
 					eventKey='new'
 					title='New products'
-					style={{ maxWidth: '775px', marginLeft: 'auto' }}
+					className={styles.showcasePane}
 				>
-					<Slider {...settings}>
+					<Slider {...settings1}>
 						{products.map((product, i) => (
 							<Product key={i} product={product} />
 						))}
@@ -112,9 +159,9 @@ const SpecificProductsShowcase = () => {
 				<Tab
 					eventKey='best'
 					title='Best sellers'
-					style={{ maxWidth: '775px', marginLeft: 'auto' }}
+					className={styles.showcasePane}
 				>
-					<Slider {...settings}>
+					<Slider {...settings1}>
 						{products.map((product, i) => (
 							<Product key={i} product={product} />
 						))}
@@ -123,9 +170,9 @@ const SpecificProductsShowcase = () => {
 				<Tab
 					eventKey='featured'
 					title='Featured products'
-					style={{ maxWidth: '775px', marginLeft: 'auto' }}
+					className={styles.showcasePane}
 				>
-					<Slider {...settings}>
+					<Slider {...settings1}>
 						{products.map((product, i) => (
 							<Product key={i} product={product} />
 						))}
@@ -134,9 +181,9 @@ const SpecificProductsShowcase = () => {
 				<Tab
 					eventKey='popular'
 					title='Most popular'
-					style={{ maxWidth: '775px', marginLeft: 'auto' }}
+					className={styles.showcasePane}
 				>
-					<Slider {...settings}>
+					<Slider {...settings1}>
 						{products.map((product, i) => (
 							<Product key={i} product={product} />
 						))}

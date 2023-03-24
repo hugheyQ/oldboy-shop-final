@@ -1,0 +1,42 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	border-radius: 3px;
+	overflow: hidden;
+
+	.imageWrapper {
+		position: relative;
+		width: 100%;
+		height: 400px;
+		overflow: hidden;
+
+		img {
+			object-fit: cover;
+		}
+	}
+
+	.body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1em;
+
+		.title {
+			font-size: 18px;
+			font-weight: 700;
+			color: $blue2;
+			margin-top: 1em;
+		}
+
+		.blogInfo {
+			font-size: 12px;
+			font-weight: 400;
+			color: $lightGray3;
+		}
+
+		.blogText {
+			font-size: 13px;
+			font-weight: 400;
+			color: $gray;
+		}
+	}
+}

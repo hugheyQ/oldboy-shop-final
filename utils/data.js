@@ -206,6 +206,32 @@ const data = {
 			imageAlt: 'Electrician at work',
 		},
 	],
+	blogs: [
+		{
+			title: 'Lorem ipsum, dolor sit amet consectetur.',
+			body:
+				'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ipsa provident aliquam, illum omnis id voluptatum ea, est quisquam nihil, itaque nostrum maxime quibusdam dignissimos	architecto? Dicta ratione laborum ad.',
+			image: '/images/blog1.jpg',
+		},
+		{
+			title: 'Lorem ipsum, dolor sit amet consectetur.',
+			body:
+				'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ipsa provident aliquam, illum omnis id voluptatum ea, est quisquam nihil, itaque nostrum maxime quibusdam dignissimos	architecto? Dicta ratione laborum ad.',
+			image: '/images/blog2.jpg',
+		},
+		{
+			title: 'Lorem ipsum, dolor sit amet consectetur.',
+			body:
+				'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ipsa provident aliquam, illum omnis id voluptatum ea, est quisquam nihil, itaque nostrum maxime quibusdam dignissimos	architecto? Dicta ratione laborum ad.',
+			image: '/images/blog1.jpg',
+		},
+		{
+			title: 'Lorem ipsum, dolor sit amet consectetur.',
+			body:
+				'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ipsa provident aliquam, illum omnis id voluptatum ea, est quisquam nihil, itaque nostrum maxime quibusdam dignissimos	architecto? Dicta ratione laborum ad.',
+			image: '/images/blog2.jpg',
+		},
+	],
 }
 
 export default data

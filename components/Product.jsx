@@ -20,13 +20,21 @@ const arimo = Arimo({
 	weight: ['400', '500', '600', '700'],
 })
 
-const Product = ({ product }) => {
+const Product = ({ product, variant }) => {
 	const discountPrice =
 		product.price - (product.price * product.discount) / 100
 	return (
-		<div className={styles.mainWrapper}>
+		<div
+			className={`${styles.mainWrapper} ${
+				variant === 'bordered' && 'border shadow'
+			}`}
+		>
 			<div className={styles.productImage}>
-				<div className={`${styles.statusWrapper} ${arimo.className}`}>
+				<div
+					className={`${styles.statusWrapper} ${arimo.className} ${
+						variant === 'bordered' && 'me-3 mt-3'
+					}`}
+				>
 					{product.bestSeller && (
 						<span className={styles.bestSeller}>Best Sellers</span>
 					)}
@@ -40,7 +48,11 @@ const Product = ({ product }) => {
 					<Image src={product.image} alt={product.title} fill />
 				</Link>
 			</div>
-			<div className={`${styles.productDetails} ${arimo.className}`}>
+			<div
+				className={`${styles.productDetails} ${arimo.className} ${
+					variant === 'bordered' && 'p-3'
+				}`}
+			>
 				<span className={styles.productBrand}>{product.brand}</span>
 				<span className={styles.productTitle}>
 					<Link href='#'>{product.title}</Link>
