@@ -9,6 +9,11 @@ import Product from '@/components/Product'
 import { Arimo, Rajdhani } from 'next/font/google'
 import Slider from 'react-slick'
 import BlogCard from '@/components/BlogCard'
+import { BsShieldShaded, BsTruck } from 'react-icons/bs'
+import { RxStar } from 'react-icons/rx'
+import { ImTruck } from 'react-icons/im'
+import { BiSupport } from 'react-icons/bi'
+import Link from 'next/link'
 
 const { products, categories, blogs } = data
 
@@ -25,12 +30,12 @@ const arimo = Arimo({
 	weight: ['400', '500', '600', '700'],
 })
 
-const settings = {
+const settings1 = {
 	dots: true,
 	infinite: true,
 	speed: 500,
-	slidesToShow: 2,
-	slidesToScroll: 2,
+	slidesToShow: 3,
+	slidesToScroll: 1,
 	swipeToSlide: true,
 	autoplay: true,
 	autoplaySpeed: 4500,
@@ -38,6 +43,13 @@ const settings = {
 	arrows: false,
 
 	responsive: [
+		{
+			breakpoint: 991.98,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+			},
+		},
 		{
 			breakpoint: 767.98,
 			settings: {
@@ -94,24 +106,20 @@ export default function Home() {
 				</section>
 				<section className={styles.section5}>
 					<Container>
-						<h2 className={`${styles.title} ${rajdhani.className}`}>
-							Recent blog posts
-						</h2>
+						<div className={styles.headerWrapper}>
+							<h2 className={`${styles.title} ${rajdhani.className}`}>
+								Recent blog posts
+							</h2>
+							<Link href='#' className={arimo.className}>
+								View all
+							</Link>
+						</div>
 
-						<Slider {...settings} className={styles.blogSlide}>
+						<Slider {...settings1} className={styles.blogSlide}>
 							{blogs.map((blog, i) => (
 								<BlogCard key={i} blog={blog} />
 							))}
 						</Slider>
-					</Container>
-				</section>
-
-				<section className={styles.section6}>
-					<Container className='d-flex align-items justify-content-between'>
-						<div>Worldwide free shipping</div>
-						<div>Rewards Program</div>
-						<div>Secure Shopping</div>
-						<div>30-Day free returns</div>
 					</Container>
 				</section>
 			</main>

@@ -299,6 +299,27 @@ ul {
 	margin: 0 -10px;
 }
 
+.benefits-slider {
+	.slick-slide > div {
+		margin: 0;
+	}
+	.slick-list {
+		margin: 0;
+	}
+
+	.benefit {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		column-gap: 0.5em !important;
+		padding: 0 !important;
+
+		svg {
+			font-size: 1.2em;
+		}
+	}
+}
+
 .slick-dots {
 	bottom: -45px !important;
 

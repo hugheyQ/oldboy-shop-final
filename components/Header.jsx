@@ -2,6 +2,7 @@ import { HiOutlineMail, HiOutlineMenuAlt1 } from 'react-icons/hi'
 import { TbPhoneCall } from 'react-icons/tb'
 import { BsCart, BsChevronDown, BsSearch } from 'react-icons/bs'
 import { VscAccount } from 'react-icons/vsc'
+import { GoLocation } from 'react-icons/go'
 import styles from '@/styles/components/Header.module.scss'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 import {
@@ -143,7 +144,7 @@ const Header = () => {
 							</p>
 						</Col>
 						<Col md={3} xl={4}>
-							<Dropdown className={styles.currencySelectorWrapper}>
+							{/* <Dropdown className={styles.currencySelectorWrapper}>
 								<Dropdown.Toggle>
 									{currency === 'GH' ? (
 										<>
@@ -173,7 +174,15 @@ const Header = () => {
 										<span className='fi fi-gb'></span> GBP
 									</Dropdown.Item>
 								</Dropdown.Menu>
-							</Dropdown>
+							</Dropdown> */}
+							<ul className={`${styles.contactLinks} justify-content-end`}>
+								<li className={styles.link}>
+									<GoLocation />
+									<Link href='https://goo.gl/maps/2afHuwMpTypev9cFA'>
+										Locate Our Shop
+									</Link>
+								</li>
+							</ul>
 						</Col>
 					</Row>
 				</Container>

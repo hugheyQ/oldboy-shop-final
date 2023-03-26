@@ -20,7 +20,10 @@ const InputField = ({
 			controlId={controlId}
 			className={`${styles.mainWrapper} ${arimo.className}`}
 		>
-			<Form.Label className={styles.label}>{label}:</Form.Label>
+			{label && (
+				<Form.Label className={styles.label}>{label}:</Form.Label>
+			)}
+
 			<Form.Control
 				type={variant}
 				placeholder={placeholder}
