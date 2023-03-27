@@ -297,9 +297,23 @@ ul {
 }
 
 .slick-arrow {
-	&.slick-prev::before,
-	&.slick-next::before {
-		color: #9ea0a4 !important;
+	z-index: 9;
+	&.slick-prev {
+		@media (max-width: 575.98px) {
+			left: -5px !important;
+		}
+		&::before {
+			color: #9ea0a4 !important;
+		}
+	}
+
+	&.slick-next {
+		@media (max-width: 575.98px) {
+			right: -5px !important;
+		}
+		&::before {
+			color: #9ea0a4 !important;
+		}
 	}
 }
 
