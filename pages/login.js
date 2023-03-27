@@ -21,7 +21,7 @@ const login = () => {
 			<section className={styles.mainWrapper}>
 				<Container>
 					<Row>
-						<Col xs={12} lg={6} className={styles.accountSignInWrapper}>
+						<Col xs={12} lg={6} className={styles.left}>
 							<h3 className={rajdhani.className}>Sign into account</h3>
 
 							<Form>
@@ -55,7 +55,7 @@ const login = () => {
 						<Col
 							xs={12}
 							lg={6}
-							className={`${styles.accountInformationWrapper} ${arimo.className}`}
+							className={`${styles.right} ${arimo.className}`}
 						>
 							<h3 className={rajdhani.className}>
 								Don&apos;t have an account?

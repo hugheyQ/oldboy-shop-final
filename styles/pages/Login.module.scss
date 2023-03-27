@@ -17,8 +17,13 @@
 		margin-bottom: 1em;
 	}
 
-	.accountSignInWrapper {
+	.left {
 		padding: 2em 2.5em;
+
+		@media (max-width: 575.98px) {
+			padding-left: 1em;
+			padding-right: 1em;
+		}
 
 		form {
 			display: flex;
@@ -57,11 +62,16 @@
 		}
 	}
 
-	.accountInformationWrapper {
+	.right {
 		background-color: $lightGray;
 		padding: 2em 2.5em;
 		border-radius: 3px;
 		font-size: 13px;
+
+		@media (max-width: 575.98px) {
+			padding-left: 1em;
+			padding-right: 1em;
+		}
 
 		p {
 			margin: 0;

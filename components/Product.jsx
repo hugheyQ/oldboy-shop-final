@@ -44,7 +44,7 @@ const Product = ({ product, variant }) => {
 						<span className={styles.soldOut}>Sold out</span>
 					)}
 				</div>
-				<Link href='#'>
+				<Link href='/products/2323'>
 					<Image src={product.image} alt={product.title} fill />
 				</Link>
 			</div>
@@ -55,7 +55,7 @@ const Product = ({ product, variant }) => {
 			>
 				<span className={styles.productBrand}>{product.brand}</span>
 				<span className={styles.productTitle}>
-					<Link href='#'>{product.title}</Link>
+					<Link href='/products/3232'>{product.title}</Link>
 				</span>
 				<div className={styles.ratingWrapper}>
 					<MdStarRate />
