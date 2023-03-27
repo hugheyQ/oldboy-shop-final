@@ -2,20 +2,11 @@ import styles from '@/styles/components/CartItem.module.scss'
 import Image from 'next/image'
 
 import { Arimo } from 'next/font/google'
+import Link from 'next/link'
 
 const arimo = Arimo({
 	subsets: ['latin'],
-	weight: [
-		// '100',
-		// '200',
-		// '300',
-		'400',
-		'500',
-		'600',
-		'700',
-		// '800',
-		// '900',
-	],
+	weight: ['400', '500', '600', '700'],
 })
 
 const CartItem = ({ product }) => {
@@ -26,7 +17,9 @@ const CartItem = ({ product }) => {
 			</div>
 			<div className={styles.productDetails}>
 				<span className={styles.productBrand}>{product.brand}</span>
-				<span className={styles.productTitle}>{product.title}</span>
+				<span className={styles.productTitle}>
+					<Link href='/products/232'>{product.title}</Link>
+				</span>
 				<div className={styles.productSubtotal}>
 					<span className={styles.productQuantity}>2</span> X{' '}
 					<span className={styles.productPrice}>GHC {product.price}</span>

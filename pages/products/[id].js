@@ -6,7 +6,7 @@ const ProductDetail = () => {
 	return (
 		<Layout>
 			<section className={styles.mainWrapper}>
-				<Container>hello</Container>
+				<Container>hi there</Container>
 			</section>
 		</Layout>
 	)
