@@ -57,9 +57,11 @@ const login = () => {
 							lg={6}
 							className={`${styles.accountInformationWrapper} ${arimo.className}`}
 						>
-							<h3 className={rajdhani.className}>Don't have an account?</h3>
+							<h3 className={rajdhani.className}>
+								Don&apos;t have an account?
+							</h3>
 
-							<p>Create an account with us and you'll be able to:</p>
+							<p>Create an account with us and you&apos;ll be able to:</p>
 
 							<ul>
 								<li>Check out faster</li>
