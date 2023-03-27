@@ -41,7 +41,7 @@ const register = () => {
 									label='Phone number'
 									controlId='phone'
 								/>
-								<Row>
+								<Row className='d-flex' style={{ rowGap: '1em' }}>
 									<Col xs={12} lg={6}>
 										<InputField
 											type='password'
