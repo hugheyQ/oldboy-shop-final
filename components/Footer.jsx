@@ -147,6 +147,7 @@ const Footer = () => {
 										placeholder='Your email address'
 										aria-label='Your email address'
 										aria-describedby='newsletter-signup'
+										className={arimo.className}
 									/>
 									<Button
 										id='newsletter-signup-button'

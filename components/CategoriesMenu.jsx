@@ -2,24 +2,18 @@ import { Accordion, Button, Nav, Offcanvas } from 'react-bootstrap'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
 import styles from '@/styles/components/CategoriesMenu.module.scss'
-import { Rajdhani } from 'next/font/google'
+import { Arimo, Rajdhani } from 'next/font/google'
 import data from '@/utils/data'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
-	weight: [
-		// '100',
-		// '200',
-		'300',
-		'400',
-		'500',
-		'600',
-		'700',
-		// '800',
-		// '900',
-	],
+	weight: ['300', '400', '500', '600', '700'],
 })
 
+const arimo = Arimo({
+	subsets: ['latin'],
+	weight: ['400', '500', '600', '700'],
+})
 const { categories } = data
 
 const CategoriesMenu = ({ show, handleClose }) => {
@@ -40,21 +34,26 @@ const CategoriesMenu = ({ show, handleClose }) => {
 					<AiOutlineArrowLeft />
 				</Button>
 			</Offcanvas.Header>
-			<Offcanvas.Body className={`${styles.body} ${rajdhani.className}`}>
-				<Accordion flush className={styles.categories}>
+			<Offcanvas.Body className={styles.body}>
+				<Accordion
+					flush
+					className={`${styles.categories} ${arimo.className}`}
+				>
 					{categories.map((category, catIndex) => (
 						<Accordion.Item
 							eventKey={catIndex}
 							className={styles.category}
 							key={catIndex}
 						>
-							<Accordion.Header className={styles.categoryTitle}>
+							<Accordion.Header
+								className={`${styles.categoryTitle} ${rajdhani.className}`}
+							>
 								{category.title}
 							</Accordion.Header>
 							<Accordion.Body className={styles.subCategories}>
 								{category.subCategories.map((subCategory, subCatIndex) => (
 									<div className={styles.subCategory} key={subCatIndex}>
-										<h2>{subCategory.title}</h2>
+										<h2 className={rajdhani.className}>{subCategory.title}</h2>
 										<Nav className={styles.navigation}>
 											{subCategory.links.map((link, linkIndex) => (
 												<Nav.Link

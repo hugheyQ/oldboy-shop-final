@@ -268,7 +268,7 @@ const Header = () => {
 								Categories
 							</Nav.Link>
 							<div
-								className={styles.categoriesWrapper}
+								className={`${styles.categoriesWrapper} ${arimo.className}`}
 								style={{ gridTemplateColumns: 'unset' }}
 							>
 								<AllCategories />
@@ -280,8 +280,11 @@ const Header = () => {
 							</Nav.Link>
 							<div className={styles.categoriesWrapper}>
 								{networkCat.subCategories.map((subCategory, i) => (
-									<div key={i} className={styles.subCategory}>
-										<h2>{subCategory.title}</h2>
+									<div
+										key={i}
+										className={`${styles.subCategory} ${arimo.className}`}
+									>
+										<h2 className={rajdhani.className}>{subCategory.title}</h2>
 										<Nav className={styles.subCategoryLinks}>
 											{subCategory.links.map((link, i) => (
 												<Nav.Link key={i} href={`/${link.slug}`}>
@@ -299,8 +302,11 @@ const Header = () => {
 							</Nav.Link>
 							<div className={styles.categoriesWrapper}>
 								{securityCat.subCategories.map((subCategory, i) => (
-									<div key={i} className={styles.subCategory}>
-										<h2>{subCategory.title}</h2>
+									<div
+										key={i}
+										className={`${styles.subCategory} ${arimo.className}`}
+									>
+										<h2 className={rajdhani.className}>{subCategory.title}</h2>
 										<Nav className={styles.subCategoryLinks}>
 											{subCategory.links.map((link, i) => (
 												<Nav.Link key={i} href={`/${link.slug}`}>
