@@ -8,6 +8,7 @@ import {
 	Col,
 	Container,
 	Form,
+	InputGroup,
 	Nav,
 	Row,
 } from 'react-bootstrap'
@@ -115,7 +116,12 @@ const Footer = () => {
 					</h5>
 
 					<Row className={styles.cards}>
-						<Col xs={12} md={12} lg={5}>
+						<Col
+							xs={12}
+							md={12}
+							lg={5}
+							className={styles.newsLetterSection}
+						>
 							<h6 className={rajdhani.className}>
 								Subscribe to our newsletter
 							</h6>
@@ -123,7 +129,7 @@ const Footer = () => {
 								Get the latest updates on new products and upcoming sales
 							</p>
 							<Form>
-								<Row>
+								{/* <Row>
 									<Col xs={7}>
 										<InputField placeholder='Your email address' type='email' />
 									</Col>
@@ -134,7 +140,21 @@ const Footer = () => {
 											Subscribe
 										</Button>
 									</Col>
-								</Row>
+								</Row> */}
+
+								<InputGroup className={styles.newsLetterInputWrapper}>
+									<Form.Control
+										placeholder='Your email address'
+										aria-label='Your email address'
+										aria-describedby='newsletter-signup'
+									/>
+									<Button
+										id='newsletter-signup-button'
+										className={`${styles.submitButton} ${rajdhani.className}`}
+									>
+										Subscribe
+									</Button>
+								</InputGroup>
 							</Form>
 
 							<div className={styles.socialMediaLinks}>
@@ -213,22 +233,93 @@ const Footer = () => {
 						<Col xs={12} className='d-md-none'>
 							<Accordion flush className={styles.mobileCards}>
 								<Accordion.Item eventKey='0' className={styles.mobileCard}>
-									<Accordion.Header className={styles.mobileCardTitle}>
+									<Accordion.Header
+										className={`${styles.mobileCardTitle} ${rajdhani.className}`}
+									>
 										Shop
 									</Accordion.Header>
-									<Accordion.Body>shop</Accordion.Body>
+									<Accordion.Body
+										className={`${styles.mobileCardBody} ${arimo.className}`}
+									>
+										<Nav
+											className={`${styles.navigation} ${styles.mobileNavigation}`}
+										>
+											{categories.map((category, i) => (
+												<Nav.Link
+													key={i}
+													href='#'
+													className={styles.navigationLink}
+												>
+													{category.title}
+												</Nav.Link>
+											))}
+										</Nav>
+									</Accordion.Body>
 								</Accordion.Item>
 								<Accordion.Item eventKey='1' className={styles.mobileCard}>
-									<Accordion.Header className={styles.mobileCardTitle}>
+									<Accordion.Header
+										className={`${styles.mobileCardTitle} ${rajdhani.className}`}
+									>
 										Information
 									</Accordion.Header>
-									<Accordion.Body>Information</Accordion.Body>
+									<Accordion.Body
+										className={`${styles.mobileCardBody} ${arimo.className}`}
+									>
+										<Nav
+											className={`${styles.navigation} ${styles.mobileNavigation}`}
+										>
+											<Nav.Link href='#' className={styles.navigationLink}>
+												Shop by brands
+											</Nav.Link>
+											<Nav.Link href='#' className={styles.navigationLink}>
+												About us
+											</Nav.Link>
+											<Nav.Link href='#' className={styles.navigationLink}>
+												Contact us
+											</Nav.Link>
+											<Nav.Link href='#' className={styles.navigationLink}>
+												Flash deal
+											</Nav.Link>
+											<Nav.Link href='#' className={styles.navigationLink}>
+												Blog
+											</Nav.Link>
+										</Nav>
+									</Accordion.Body>
 								</Accordion.Item>
 								<Accordion.Item eventKey='2' className={styles.mobileCard}>
-									<Accordion.Header className={styles.mobileCardTitle}>
+									<Accordion.Header
+										className={`${styles.mobileCardTitle} ${rajdhani.className}`}
+									>
 										Contact
 									</Accordion.Header>
-									<Accordion.Body>contact</Accordion.Body>
+									<Accordion.Body
+										className={`${styles.mobileCardBody} ${arimo.className}`}
+									>
+										<div
+											className={`${styles.contactInfoWrapper} ${styles.mobileContactInfoWrapper} ${arimo.className}`}
+										>
+											<div className={styles.contactInfo}>
+												<GoLocation />
+												<Link href='#'>
+													Tycan House, House NO. 43 <br />
+													Tetteh Okuley Ave <br />
+													Abofu - Achimota
+												</Link>
+											</div>
+
+											<div className={styles.contactInfo}>
+												<TbPhoneCall />
+												<div>
+													<Link href='#'>026 1989 626</Link>
+													<Link href='#'>Ask an expert</Link>
+												</div>
+											</div>
+											<div className={styles.contactInfo}>
+												<HiOutlineMail />
+												<Link href='#'>support@onlineshop.com</Link>
+											</div>
+										</div>
+									</Accordion.Body>
 								</Accordion.Item>
 							</Accordion>
 						</Col>

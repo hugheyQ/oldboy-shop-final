@@ -1,6 +1,17 @@
 import { Button, Form, InputGroup } from 'react-bootstrap'
 import { BsSearch } from 'react-icons/bs'
 import styles from '@/styles/components/SearchField.module.scss'
+import { Arimo, Rajdhani } from 'next/font/google'
+
+const rajdhani = Rajdhani({
+	subsets: ['latin'],
+	weight: ['300', '400', '500', '600', '700'],
+})
+
+const arimo = Arimo({
+	subsets: ['latin'],
+	weight: ['400', '500', '600', '700'],
+})
 
 const SearchField = ({
 	setSearchTerm,
@@ -27,12 +38,15 @@ const SearchField = ({
 					placeholder='What are you looking for...'
 					aria-label='Product search'
 					aria-describedby='searchField'
-					className={styles.searchInput}
+					className={`${styles.searchInput} ${arimo.className}`}
 					type='search'
 					defaultValue={searchTerm}
 					onChange={e => setSearchTerm(e.target.value)}
 				/>
-				<Button type='submit' className={styles.searchButton}>
+				<Button
+					type='submit'
+					className={`${styles.searchButton} ${rajdhani.className}`}
+				>
 					Search
 				</Button>
 			</InputGroup>

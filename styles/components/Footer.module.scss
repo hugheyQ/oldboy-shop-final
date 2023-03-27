@@ -39,52 +39,84 @@
 				text-align: left;
 			}
 
-			p {
-				color: #dfdfdf;
-				font-size: 12px;
-				font-weight: 400;
-				margin-top: 1.5em;
-				margin-bottom: 1.2em;
-			}
-
-			form {
-				margin-bottom: 1.5em;
-
-				input {
-					font-size: 14px !important;
-					padding-top: 10px;
-					padding-bottom: 10px;
-				}
-
-				.submitButton {
-					font-size: 16px;
-					font-weight: 700;
-					text-transform: uppercase;
-					padding: 8px 0;
-					width: 100%;
-					border-radius: 3px;
-					background-color: $red;
-					color: white !important;
-					border: 1px solid $red;
-				}
-			}
-
-			.socialMediaLinks {
-				display: flex;
-				column-gap: 1em;
-
+			.newsLetterSection {
 				@media (max-width: 991.98px) {
-					margin-bottom: 2em !important;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
 				}
 
-				a {
+				p {
+					color: #dfdfdf;
+					font-size: 12px;
+					font-weight: 400;
+					margin-top: 1.5em;
+					margin-bottom: 1.2em;
+				}
+				form {
+					margin-bottom: 1.5em;
+					width: 100%;
+					max-width: 400px;
+
+					@media (max-width: 991.98px) {
+						max-width: 500px;
+					}
+
+					.newsLetterInputWrapper {
+						// max-width: 400px;
+						// margin-left: auto;
+						// margin-right: auto;
+
+						// @media (max-width: 991.98px) {
+
+						// }
+
+						input {
+							font-size: 16px !important;
+							padding-top: 10px;
+							padding-bottom: 10px;
+							border-radius: 3px;
+							border: 1px solid rgb(204, 207, 214);
+							transition: all 0.4s ease-in-out;
+							color: #666666;
+
+							&:focus {
+								box-shadow: none;
+								border-color: rgb(153, 153, 153);
+							}
+						}
+
+						.submitButton {
+							font-size: 16px;
+							font-weight: 700;
+							text-transform: uppercase;
+							padding-left: 1.5em;
+							padding-right: 1.5em;
+							border-radius: 3px;
+							background-color: $red;
+							color: white !important;
+							border: 1px solid $red;
+						}
+					}
+				}
+
+				.socialMediaLinks {
 					display: flex;
-					align-items: center;
-					justify-content: center;
-					border: 1px solid $gray;
-					height: 40px;
-					width: 40px;
-					border-radius: 50%;
+					column-gap: 1em;
+
+					@media (max-width: 991.98px) {
+						margin-bottom: 2em !important;
+					}
+
+					a {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						border: 1px solid $gray;
+						height: 40px;
+						width: 40px;
+						border-radius: 50%;
+					}
 				}
 			}
 
@@ -93,6 +125,10 @@
 				align-items: flex-start;
 				row-gap: 0.5em;
 				margin-top: 1.2em;
+
+				&.mobileNavigation {
+					margin-top: unset !important;
+				}
 
 				.navigationLink {
 					color: #dfdfdf;
@@ -142,13 +178,17 @@
 			}
 
 			.contactInfoWrapper {
-				margin-top: 1.2em;
+				margin-top: 1.6em;
 				font-size: 12px;
 				font-weight: 400;
 				color: #dfdfdf;
 				display: flex;
 				flex-direction: column;
-				row-gap: 1em;
+				row-gap: 1.5em;
+
+				&.mobileContactInfoWrapper {
+					margin-top: unset;
+				}
 
 				.contactInfo {
 					display: flex;
@@ -167,7 +207,7 @@
 							text-transform: uppercase;
 							text-decoration: underline !important;
 							text-underline-position: under;
-							margin-top: 0.7em;
+							margin-top: 0.5em;
 						}
 					}
 
@@ -179,10 +219,13 @@
 
 			.mobileCards {
 				.mobileCard {
+					border: none;
 					.mobileCardTitle {
 						font-size: 16px;
 						font-weight: 700;
 						text-transform: uppercase;
+						border-bottom: 1px solid $gray !important;
+
 						button {
 							background-color: #222325 !important;
 							color: white !important;
@@ -193,20 +236,21 @@
 							align-items: center;
 							column-gap: 0.7em;
 							text-transform: uppercase;
+							padding-left: 0 !important;
+							padding-right: 0 !important;
 
 							&::after {
 								background-size: 1em;
+								background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
 							}
-
-							// &:not(.collapsed) {
-							// 	color: white;
-							// 	background-color: unset !important;
-
-							// 	&::after {
-							// 		background-image: var(--bs-accordion-btn-icon);
-							// 	}
-							// }
 						}
+					}
+
+					.mobileCardBody {
+						background-color: #222325 !important;
+						color: #dfdfdf;
+						padding-left: 0 !important;
+						padding-right: 0 !important;
 					}
 
 					// .subCategories {

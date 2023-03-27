@@ -33,7 +33,7 @@ const SpecificProductsShowcase = ({
 		slidesToScroll: 3,
 		swipeToSlide: true,
 		autoplay: true,
-		autoplaySpeed: 4500,
+		autoplaySpeed: 5000,
 		pauseOnFocus: true,
 
 		responsive: [
@@ -42,8 +42,6 @@ const SpecificProductsShowcase = ({
 				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 2,
-					infinite: true,
-					dots: true,
 				},
 			},
 			{
@@ -51,8 +49,6 @@ const SpecificProductsShowcase = ({
 				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 2,
-					infinite: true,
-					dots: true,
 				},
 			},
 			{
@@ -60,8 +56,6 @@ const SpecificProductsShowcase = ({
 				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 2,
-					infinite: true,
-					dots: true,
 				},
 			},
 			{
@@ -69,8 +63,6 @@ const SpecificProductsShowcase = ({
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
-					infinite: true,
-					dots: true,
 				},
 			},
 		],
@@ -86,6 +78,7 @@ const SpecificProductsShowcase = ({
 		autoplay: true,
 		autoplaySpeed: 4500,
 		pauseOnFocus: true,
+		arrows: false,
 	}
 
 	return (

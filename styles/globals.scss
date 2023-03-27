@@ -295,6 +295,14 @@ ul {
 .slick-slide > div {
 	margin: 0 10px;
 }
+
+.slick-arrow {
+	&.slick-prev::before,
+	&.slick-next::before {
+		color: #9ea0a4 !important;
+	}
+}
+
 .slick-list {
 	margin: 0 -10px;
 }

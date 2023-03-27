@@ -11,7 +11,7 @@ const BlogCard = ({ blog }) => {
 	return (
 		<div className={`${styles.mainWrapper} ${arimo.className}`}>
 			<div className={styles.imageWrapper}>
-				<Image src={blog.image} fill />
+				<Image src={blog.image} fill alt='' />
 			</div>
 			<div className={styles.body}>
 				<h5 className={styles.title}>{blog.title}</h5>

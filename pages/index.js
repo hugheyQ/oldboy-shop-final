@@ -9,10 +9,6 @@ import Product from '@/components/Product'
 import { Arimo, Rajdhani } from 'next/font/google'
 import Slider from 'react-slick'
 import BlogCard from '@/components/BlogCard'
-import { BsShieldShaded, BsTruck } from 'react-icons/bs'
-import { RxStar } from 'react-icons/rx'
-import { ImTruck } from 'react-icons/im'
-import { BiSupport } from 'react-icons/bi'
 import Link from 'next/link'
 
 const { products, categories, blogs } = data
@@ -38,16 +34,16 @@ const settings1 = {
 	slidesToScroll: 1,
 	swipeToSlide: true,
 	autoplay: true,
-	autoplaySpeed: 4500,
+	autoplaySpeed: 5000,
 	pauseOnFocus: true,
-	arrows: false,
+	arrows: true,
 
 	responsive: [
 		{
 			breakpoint: 991.98,
 			settings: {
 				slidesToShow: 2,
-				slidesToScroll: 1,
+				slidesToScroll: 2,
 			},
 		},
 		{
