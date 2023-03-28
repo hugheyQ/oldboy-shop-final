@@ -5,6 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from 'react-bootstrap'
 import { MdStarRate } from 'react-icons/md'
+import Badge from './Badge'
+import Rating from './Rating'
 
 const { products } = data
 
@@ -35,14 +37,10 @@ const Product = ({ product, variant }) => {
 						variant === 'bordered' && 'me-3 mt-3'
 					}`}
 				>
-					{product.bestSeller && (
-						<span className={styles.bestSeller}>Best Sellers</span>
-					)}
-					{product.new && <span className={styles.new}>New</span>}
-					{product.discounted && <span className={styles.sale}>Sale</span>}
-					{product.stock === 0 && (
-						<span className={styles.soldOut}>Sold out</span>
-					)}
+					{product.bestSeller && <Badge type='seller' />}
+					{product.new && <Badge type='new' />}
+					{product.discounted && <Badge type='sale' />}
+					{product.stock === 0 && <Badge type='soldout' />}
 				</div>
 				<Link href='/products/2323'>
 					<Image src={product.image} alt={product.title} fill />
@@ -57,23 +55,17 @@ const Product = ({ product, variant }) => {
 				<span className={styles.productTitle}>
 					<Link href='/products/3232'>{product.title}</Link>
 				</span>
-				<div className={styles.ratingWrapper}>
-					<MdStarRate />
-					<MdStarRate />
-					<MdStarRate />
-					<MdStarRate />
-					<MdStarRate />
-				</div>
+				<Rating />
 				<div className={styles.pricesBlock}>
 					{product?.discounted ? (
 						<>
-							<span className={styles.oldPrice}>GHC {product.price}</span>
+							<span className={styles.oldPrice}>GH₵{product.price}</span>
 							<span className={`${styles.price} ${styles.discounted}`}>
-								GHC {discountPrice}
+								GH₵{discountPrice}
 							</span>
 						</>
 					) : (
-						<span className={styles.price}>GHC {product.price}</span>
+						<span className={styles.price}>GH₵{product.price}</span>
 					)}
 				</div>
 				<Button

@@ -14,6 +14,10 @@
 		position: relative;
 		overflow: hidden !important;
 
+		img {
+			object-fit: contain;
+		}
+
 		.statusWrapper {
 			position: absolute;
 			top: 0;
@@ -23,36 +27,6 @@
 			z-index: 5;
 			align-items: flex-end;
 			row-gap: 0.4em;
-
-			span {
-				font-size: 12px;
-				font-weight: 500;
-				color: white;
-				display: inline-block;
-				text-align: center;
-				border-radius: 3px;
-				padding: 1px 9px;
-
-				&.bestSeller {
-					background-color: #e56d00;
-				}
-
-				&.new {
-					background-color: #6aa004;
-				}
-
-				&.sale {
-					background-color: #c00011;
-				}
-
-				&.soldOut {
-					background-color: #898989;
-				}
-			}
-		}
-
-		img {
-			object-fit: contain;
 		}
 	}
 
@@ -83,19 +57,7 @@
 			font-size: 14px;
 			font-weight: 700;
 			color: $blue2;
-			// 	margin-bottom: 12px;
-		}
-
-		.ratingWrapper {
-			display: flex;
-			align-items: flex-start;
-			column-gap: 0.3em;
-			margin-top: 15px;
-
-			svg {
-				color: #e2e2e2;
-				font-size: 1.1em;
-			}
+			margin-bottom: 15px;
 		}
 
 		.pricesBlock {

@@ -1,0 +1,12 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	display: flex;
+	align-items: flex-start;
+	column-gap: 0.3em;
+
+	svg {
+		color: #e2e2e2;
+		font-size: 1.1em;
+	}
+}
