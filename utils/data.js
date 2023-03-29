@@ -1,8 +1,9 @@
 const data = {
 	products: [
 		{
+			id: 1,
 			brand: 'Samsung',
-			title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
+			title: 'Rackmount cage nuts 50 Pack Black',
 			price: 200,
 			image: '/images/1.jpg',
 			stock: 0,
@@ -12,8 +13,9 @@ const data = {
 			new: false,
 		},
 		{
+			id: 2,
 			brand: 'Panasonic',
-			title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
+			title: 'Haydon 16 Way 1U Rack Mount Power Supply 16 Amp Fused',
 			price: 50,
 			image: '/images/2.jpg',
 			stock: 100,
@@ -24,8 +26,9 @@ const data = {
 		},
 
 		{
+			id: 3,
 			brand: 'Samsung',
-			title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
+			title: '19" Cabinet Perforated Blanking Plate',
 			price: 200,
 			image: '/images/1.jpg',
 			stock: 0,
@@ -35,8 +38,10 @@ const data = {
 			new: true,
 		},
 		{
+			id: 4,
 			brand: 'Panasonic',
-			title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
+			title:
+				'10” SOHO 1U Rack Mount Surge Protected Three Way 13 Amp PDU',
 			price: 50,
 			image: '/images/2.jpg',
 			stock: 100,
@@ -47,8 +52,9 @@ const data = {
 		},
 
 		{
+			id: 5,
 			brand: 'Samsung',
-			title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
+			title: 'UK Socket / UK Plug PDU Horizontal 8 Way',
 			price: 200,
 			image: '/images/1.jpg',
 			stock: 0,
@@ -58,8 +64,10 @@ const data = {
 			new: true,
 		},
 		{
+			id: 6,
 			brand: 'Panasonic',
-			title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
+			title:
+				'UK Socket / UK Plug PDU Horizontal 7 Way with Surge Protection',
 			price: 500,
 			image: '/images/2.jpg',
 			stock: 100,
@@ -70,28 +78,30 @@ const data = {
 			new: true,
 		},
 
-		{
-			brand: 'Samsung',
-			title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
-			price: 200,
-			image: '/images/1.jpg',
-			stock: 0,
-			discounted: false,
-			discount: 5,
-			bestSeller: true,
-			new: false,
-		},
-		{
-			brand: 'Panasonic',
-			title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
-			price: 50,
-			image: '/images/2.jpg',
-			stock: 100,
-			discounted: false,
-			newPrice: 0,
-			bestSeller: true,
-			new: true,
-		},
+		// {
+		// 	id: 7,
+		// 	brand: 'Samsung',
+		// 	title: 'Rack Mount Fan Tray for Server, Data and Network Cabinets',
+		// 	price: 200,
+		// 	image: '/images/1.jpg',
+		// 	stock: 0,
+		// 	discounted: false,
+		// 	discount: 5,
+		// 	bestSeller: true,
+		// 	new: false,
+		// },
+		// {
+		// 	id: 8,
+		// 	brand: 'Panasonic',
+		// 	title: 'Vertical Cable Management Racks for 800mm Wide Cabinets',
+		// 	price: 50,
+		// 	image: '/images/2.jpg',
+		// 	stock: 100,
+		// 	discounted: false,
+		// 	newPrice: 0,
+		// 	bestSeller: true,
+		// 	new: true,
+		// },
 	],
 	categories: [
 		{

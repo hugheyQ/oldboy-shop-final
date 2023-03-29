@@ -1,4 +1,6 @@
+import AdditionalInfoSectionDesktop from '@/components/AdditionalInfoSectionDesktop'
 import Badge from '@/components/Badge'
+import ComplementaryProduct from '@/components/ComplementaryProduct'
 import InputField from '@/components/InputField'
 import Layout from '@/components/Layout'
 import Rating from '@/components/Rating'
@@ -11,7 +13,6 @@ import { useState } from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import { AiOutlinePlayCircle } from 'react-icons/ai'
 import { BsFire } from 'react-icons/bs'
-import { MdStarRate } from 'react-icons/md'
 import Slider from 'react-slick'
 
 const rajdhani = Rajdhani({
@@ -48,7 +49,7 @@ const ProductDetail = () => {
 		setSelectedImage(index)
 	}
 
-	const settings = {
+	const settings1 = {
 		dots: true,
 		infinite: true,
 		speed: 500,
@@ -59,6 +60,50 @@ const ProductDetail = () => {
 		autoplaySpeed: 5000,
 		pauseOnFocus: true,
 		arrows: false,
+	}
+
+	const settings2 = {
+		dots: false,
+		infinite: false,
+		speed: 500,
+		slidesToShow: 4,
+		slidesToScroll: 4,
+		swipeToSlide: true,
+		autoplay: false,
+		autoplaySpeed: 5000,
+		pauseOnFocus: true,
+		arrows: true,
+
+		responsive: [
+			{
+				breakpoint: 1199.98,
+				settings: {
+					slidesToShow: 4,
+					slidesToScroll: 4,
+				},
+			},
+			{
+				breakpoint: 991.98,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+				},
+			},
+			{
+				breakpoint: 767.98,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+				},
+			},
+			{
+				breakpoint: 575.98,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+				},
+			},
+		],
 	}
 
 	return (
@@ -118,7 +163,7 @@ const ProductDetail = () => {
 									)}
 								</div>
 
-								<Slider {...settings} className='product-thumbnails-slider'>
+								<Slider {...settings1} className='product-thumbnails-slider'>
 									{thumbnails.map((thumbnail, i) => (
 										<div key={i}>
 											<Image src={thumbnail.url} alt='' fill />
@@ -195,6 +240,44 @@ const ProductDetail = () => {
 								</Button>
 							</Col>
 						</Row>
+					</Container>
+				</section>
+
+				<section className={styles.frequentlyBoughtTogetherWrapper}>
+					<Container>
+						<h2 className={`${styles.fbtTitle} ${rajdhani.className}`}>
+							Frequently bought together
+						</h2>
+						<Row>
+							<Col xs={12} xl={9}>
+								<Slider {...settings2} className='fbt-slider'>
+									{products.map((product, i) => (
+										<ComplementaryProduct key={i} product={product} />
+									))}
+								</Slider>
+							</Col>
+							<Col
+								xs={12}
+								xl={3}
+								className={`${styles.addAllToCartColumn} ${arimo.className}`}
+							>
+								<div className={styles.total}>
+									<span>Total:</span>
+									<span>GH₵2000.00</span>
+								</div>
+								<Button
+									className={`${styles.addToCartButton} ${rajdhani.className}`}
+								>
+									Add all to cart
+								</Button>
+							</Col>
+						</Row>
+					</Container>
+				</section>
+
+				<section className={styles.additionalInfoWrapper}>
+					<Container>
+						<AdditionalInfoSectionDesktop />
 					</Container>
 				</section>
 			</div>

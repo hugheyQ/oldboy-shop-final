@@ -292,6 +292,72 @@ ul {
 	}
 }
 
+.additional-info-navigation {
+	border-bottom: 1px solid $lightGray2;
+	display: flex;
+	column-gap: 1.5em;
+	padding-bottom: 0.1em !important;
+	margin-bottom: 2em !important;
+
+	.nav-item {
+		.nav-link {
+			border: none;
+			color: #999;
+			padding: 0;
+			background-color: white !important;
+			border-radius: 0;
+			font-size: 20px;
+			font-weight: 700;
+			text-transform: uppercase;
+			padding-bottom: 0.4em;
+			display: inline-block;
+			vertical-align: middle;
+			-webkit-transform: perspective(1px) translateZ(0);
+			transform: perspective(1px) translateZ(0);
+			box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+			position: relative;
+			transition: all 0.4s ease-out;
+
+			@media (max-width: 767.98px) {
+				font-size: 16px;
+			}
+
+			&.active {
+				color: $gray;
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				left: 0;
+				right: 100%;
+				bottom: -1px;
+				background: $red;
+				height: 3px;
+				-webkit-transition-property: right;
+				transition-property: right;
+				-webkit-transition-duration: 0.4s;
+				transition-duration: 0.4s;
+				-webkit-transition-timing-function: ease-out;
+				transition-timing-function: ease-out;
+			}
+
+			&.active:before {
+				right: 0 !important;
+			}
+
+			&:focus:before {
+				right: 0;
+			}
+
+			&:active:before {
+				right: 0;
+			}
+		}
+	}
+}
+
 .slick-slide > div {
 	margin: 0 10px;
 }
@@ -338,6 +404,50 @@ ul {
 
 		svg {
 			font-size: 1.2em;
+		}
+	}
+}
+
+.fbt-slider {
+	.slick-slide {
+		position: relative;
+
+		&:last-child::after {
+			content: '';
+		}
+
+		&::after {
+			content: '+';
+			position: absolute;
+			top: 25%;
+			right: 0px;
+			color: #bfbfbf;
+			font-size: 40px;
+			font-weight: 500;
+			z-index: 5;
+		}
+
+		& > div {
+			margin: 0;
+		}
+	}
+
+	.slick-active.slick-current
+		+ .slick-active
+		+ .slick-active
+		+ .slick-active::after {
+		content: '';
+	}
+
+	.slick-active.slick-current + .slick-active::after {
+		@media (max-width: 767.98px) {
+			content: '';
+		}
+	}
+
+	.slick-active.slick-current + .slick-active + .slick-active::after {
+		@media (max-width: 991.98px) {
+			content: '';
 		}
 	}
 }

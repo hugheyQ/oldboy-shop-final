@@ -1,6 +1,39 @@
 @import '@/styles/variables.module.scss';
 
 .mainWrapper {
+	.addToCartButton {
+		width: 100%;
+		max-width: 240px;
+		display: block;
+		color: white;
+		border: 1px solid $red;
+		background-color: $red;
+		// box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05);
+		border-radius: 3px;
+		text-transform: uppercase;
+		font-weight: 700;
+		text-align: center;
+		transition: all 0.4s ease-in-out;
+		padding: 9px;
+
+		@media (max-width: 991.98px) {
+			max-width: unset;
+		}
+
+		&:hover {
+			color: $red;
+			border-color: $red;
+			background-color: white;
+		}
+
+		&.outOfStock {
+			background-color: #f7f7f7;
+			border-color: #f7f7f7;
+			cursor: not-allowed !important;
+			color: #999;
+		}
+	}
+
 	.productDetailsWrapper {
 		padding-top: 4em;
 		padding-bottom: 4em;
@@ -269,40 +302,60 @@
 			.quantity {
 				margin-bottom: 2em;
 			}
+		}
+	}
 
-			.addToCartButton {
-				width: 100%;
-				max-width: 300px;
-				display: block;
-				color: white;
-				border-color: $red;
-				background-color: $red;
-				// box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05);
-				border-radius: 3px;
-				text-transform: uppercase;
-				font-weight: 700;
-				text-align: center;
-				transition: all 0.4s ease-in-out;
-				border: 1px solid #b6b6b6;
-				padding: 9px;
+	.frequentlyBoughtTogetherWrapper {
+		padding-top: 1em;
+		padding-bottom: 3em;
+		border: 1px solid $lightGray2;
+		border-top: none;
+		border-left: none;
+		border-right: none;
 
-				@media (max-width: 991.98px) {
-					max-width: unset;
+		.fbtTitle {
+			text-transform: uppercase;
+			font-size: 24px;
+			font-weight: 700;
+			color: $gray;
+			border-bottom: 1px solid $lightGray2;
+			padding-bottom: 0.5em;
+			margin-bottom: 0;
+		}
+
+		.addAllToCartColumn {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.total {
+				color: $gray;
+				display: flex;
+				align-items: flex-end;
+				column-gap: 0.5em;
+				margin-bottom: 0.9em;
+
+				@media (max-width: 1199.98px) {
+					margin-top: 3em;
 				}
 
-				&:hover {
-					color: $red;
-					border-color: $red;
-					background-color: white;
+				span:first-child {
+					font-size: 12px;
+					font-weight: 400;
 				}
 
-				&.outOfStock {
-					background-color: #f7f7f7;
-					border-color: #f7f7f7;
-					cursor: not-allowed !important;
-					color: #999;
+				span:last-child {
+					font-size: 18px;
+					font-weight: 700;
+					line-height: 1em;
 				}
 			}
 		}
+	}
+
+	.additionalInfoWrapper {
+		padding-top: 2.5em;
+		padding-bottom: 2.5em;
 	}
 }
