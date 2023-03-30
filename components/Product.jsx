@@ -22,14 +22,14 @@ const arimo = Arimo({
 	weight: ['400', '500', '600', '700'],
 })
 
-const Product = ({ product, variant }) => {
+const Product = ({ product, variant, margin }) => {
 	const discountPrice =
 		product.price - (product.price * product.discount) / 100
 	return (
 		<div
 			className={`${styles.mainWrapper} ${
 				variant === 'bordered' && 'border shadow'
-			}`}
+			} ${margin && styles.twoRowsSlider}`}
 		>
 			<div className={styles.productImage}>
 				<div

@@ -24,16 +24,14 @@
 	pointer-events: none;
 	transform: translate(0, -15em);
 	transition: all 0.4s ease-in-out;
-	background-color: rgba($blue, $alpha: 0.6);
-	// background-color: $blue;
-	height: 45px;
-	width: 45px;
-	border-radius: 5px;
-	border: 1px solid rgba($blue, $alpha: 0.6);
+	background-color: white;
+	padding: 0.5em;
+	border-radius: 50%;
+	border: 1px solid #cdd0d7;
+	color: black;
 
 	@media (max-width: 767.98px) {
-		height: 40px;
-		width: 40px;
+		padding: 0.4em;
 	}
 
 	&.show {
@@ -49,5 +47,9 @@
 
 	svg {
 		font-size: 1em;
+
+		@media (max-width: 767.98px) {
+			font-size: 0.8em;
+		}
 	}
 }

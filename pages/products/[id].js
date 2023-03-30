@@ -1,16 +1,25 @@
 import AdditionalInfoSectionDesktop from '@/components/AdditionalInfoSectionDesktop'
+import AdditionalInfoSectionMobile from '@/components/AdditionalInfoSectionMobile'
 import Badge from '@/components/Badge'
+import BottomAddToCart from '@/components/BottomAddToCart'
 import ComplementaryProduct from '@/components/ComplementaryProduct'
 import InputField from '@/components/InputField'
 import Layout from '@/components/Layout'
+import Product from '@/components/Product'
 import Rating from '@/components/Rating'
 import styles from '@/styles/pages/ProductDetails.module.scss'
 import data from '@/utils/data'
 import { Arimo, Rajdhani } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap'
+import { useEffect, useState } from 'react'
+import {
+	Button,
+	Col,
+	Container,
+	Offcanvas,
+	Row,
+} from 'react-bootstrap'
 import { AiOutlinePlayCircle } from 'react-icons/ai'
 import { BsFire } from 'react-icons/bs'
 import Slider from 'react-slick'
@@ -44,6 +53,7 @@ const ProductDetail = () => {
 	]
 
 	const [selectedImage, setSelectedImage] = useState(0)
+	const [show, setShow] = useState(false)
 
 	const selectImage = index => {
 		setSelectedImage(index)
@@ -105,6 +115,70 @@ const ProductDetail = () => {
 			},
 		],
 	}
+
+	const settings3 = {
+		dots: true,
+		infinite: false,
+		speed: 500,
+		slidesToShow: 2,
+		slidesToScroll: 2,
+		swipeToSlide: true,
+		autoplay: false,
+		autoplaySpeed: 5000,
+		pauseOnFocus: true,
+		arrows: false,
+		slidesPerRow: 2,
+
+		responsive: [
+			{
+				breakpoint: 1199.98,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+				},
+			},
+			{
+				breakpoint: 991.98,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					slidesPerRow: 1,
+				},
+			},
+			{
+				breakpoint: 767.98,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					slidesPerRow: 1,
+				},
+			},
+			{
+				breakpoint: 575.98,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					slidesPerRow: 1,
+				},
+			},
+		],
+	}
+
+	const handleScroll = () => {
+		const scrollPosition = window.scrollY // => scroll position
+		if (scrollPosition > 800) {
+			setShow(true)
+		} else {
+			setShow(false)
+		}
+	}
+	useEffect(() => {
+		handleScroll()
+		window.addEventListener('scroll', handleScroll)
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
 
 	return (
 		<Layout>
@@ -277,9 +351,25 @@ const ProductDetail = () => {
 
 				<section className={styles.additionalInfoWrapper}>
 					<Container>
-						<AdditionalInfoSectionDesktop />
+						<Row>
+							<Col xs={12} lg={7} className={styles.left}>
+								<AdditionalInfoSectionDesktop />
+								<AdditionalInfoSectionMobile />
+							</Col>
+							<Col xs={12} lg={5} className={styles.right}>
+								<h3 className={rajdhani.className}>Related Products</h3>
+
+								<Slider {...settings3}>
+									{products.map(product => (
+										<Product key={product.id} product={product} margin />
+									))}
+								</Slider>
+							</Col>
+						</Row>
 					</Container>
 				</section>
+
+				<BottomAddToCart show={show} product={product} />
 			</div>
 		</Layout>
 	)

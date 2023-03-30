@@ -1,12 +1,11 @@
-import styles from '@/styles/components/AdditionalInfoSectionDesktop.module.scss'
+import styles from '@/styles/components/AdditionalInfoSectionMobile.module.scss'
 import { Arimo, Rajdhani } from 'next/font/google'
 import Image from 'next/image'
-import { useState } from 'react'
-import { Accordion, Tab, Tabs } from 'react-bootstrap'
-import Slider from 'react-slick'
-import { FaBook } from 'react-icons/fa'
-import { BsShieldCheck } from 'react-icons/bs'
 import Link from 'next/link'
+import { Accordion } from 'react-bootstrap'
+import { BsShieldCheck } from 'react-icons/bs'
+import { FaBook } from 'react-icons/fa'
+import Slider from 'react-slick'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
@@ -72,22 +71,19 @@ const settings = {
 	],
 }
 
-const AdditionalInfoSection = () => {
-	const [key, setKey] = useState('description')
-
+const AdditionalInfoSectionMobile = () => {
 	return (
-		<div className={`${styles.mainWrapper} d-none d-sm-block`}>
-			<Tabs
-				id='controlled-tab-example'
-				activeKey={key}
-				onSelect={k => setKey(k)}
-				className={`additional-info-navigation ${rajdhani.className}`}
-			>
-				<Tab
-					eventKey='description'
-					title='Description'
-					className={`${styles.body} ${styles.description} ${arimo.className}`}
+		<Accordion
+			flush
+			className={`${styles.mainWrapper} ${arimo.className} d-sm-none`}
+		>
+			<Accordion.Item eventKey='1' className={styles.infoCategory}>
+				<Accordion.Header
+					className={`${styles.infoCategoryTitle} ${rajdhani.className}`}
 				>
+					Description
+				</Accordion.Header>
+				<Accordion.Body className={styles.infoCategoryBody}>
 					<section>
 						<p>
 							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
@@ -148,12 +144,16 @@ const AdditionalInfoSection = () => {
 							lectus volutpat danos dapibus purus pulvinar.
 						</p>
 					</section>
-				</Tab>
-				<Tab
-					eventKey='shipping'
-					title='Shipping & returns'
-					className={`${styles.body} ${styles.shipping} ${arimo.className}`}
+				</Accordion.Body>
+			</Accordion.Item>
+
+			<Accordion.Item eventKey='2' className={styles.infoCategory}>
+				<Accordion.Header
+					className={`${styles.infoCategoryTitle} ${rajdhani.className}`}
 				>
+					Shipping & Returns
+				</Accordion.Header>
+				<Accordion.Body className={styles.infoCategoryBody}>
 					<section>
 						<p className='fst-italic'>
 							Nam tempus turpis at metus scelerisque placerat nulla deumantos
@@ -222,12 +222,16 @@ const AdditionalInfoSection = () => {
 							fringilla felis. Nullam maximus nisi nec mi facilisis.
 						</p>
 					</section>
-				</Tab>
-				<Tab
-					eventKey='resources'
-					title='Resources'
-					className={`${styles.body} ${styles.resources} ${arimo.className}`}
+				</Accordion.Body>
+			</Accordion.Item>
+
+			<Accordion.Item eventKey='3' className={styles.infoCategory}>
+				<Accordion.Header
+					className={`${styles.infoCategoryTitle} ${rajdhani.className}`}
 				>
+					Resources
+				</Accordion.Header>
+				<Accordion.Body className={styles.infoCategoryBody}>
 					<section className={styles.resourcesWrapper}>
 						<Link href='#'>
 							<FaBook /> Instruction Manual
@@ -236,12 +240,16 @@ const AdditionalInfoSection = () => {
 							<BsShieldCheck /> Warranty
 						</Link>
 					</section>
-				</Tab>
-				<Tab
-					eventKey='faq'
-					title='FAQ'
-					className={`${styles.body} ${styles.faq} ${arimo.className}`}
+				</Accordion.Body>
+			</Accordion.Item>
+
+			<Accordion.Item eventKey='4' className={styles.infoCategory}>
+				<Accordion.Header
+					className={`${styles.infoCategoryTitle} ${rajdhani.className}`}
 				>
+					faq
+				</Accordion.Header>
+				<Accordion.Body className={styles.infoCategoryBody}>
 					<section className={styles.faqWrapper}>
 						<p className='fst-italic'>
 							Nam tempus turpis at metus scelerisque placerat nulla deumantos
@@ -345,9 +353,9 @@ const AdditionalInfoSection = () => {
 							</Accordion.Item>
 						</Accordion>
 					</section>
-				</Tab>
-			</Tabs>
-		</div>
+				</Accordion.Body>
+			</Accordion.Item>
+		</Accordion>
 	)
 }
-export default AdditionalInfoSection
+export default AdditionalInfoSectionMobile

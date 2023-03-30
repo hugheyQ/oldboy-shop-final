@@ -293,7 +293,7 @@ ul {
 }
 
 .additional-info-navigation {
-	border-bottom: 1px solid $lightGray2;
+	border-bottom: 1px solid $lightGray2 !important;
 	display: flex;
 	column-gap: 1.5em;
 	padding-bottom: 0.1em !important;
@@ -309,7 +309,7 @@ ul {
 			font-size: 20px;
 			font-weight: 700;
 			text-transform: uppercase;
-			padding-bottom: 0.4em;
+			padding-bottom: 0.3em;
 			display: inline-block;
 			vertical-align: middle;
 			-webkit-transform: perspective(1px) translateZ(0);
@@ -476,6 +476,31 @@ ul {
 
 	.slick-dots {
 		bottom: 0px !important;
+	}
+}
+
+.product-more-info-slider {
+	.slick-slide > div {
+		.image-wrapper {
+			position: relative;
+			width: 100%;
+			height: 150px;
+		}
+
+		@media (max-width: 767.98px) {
+			height: 180px;
+		}
+
+		img {
+			object-fit: contain;
+		}
+	}
+	.slick-list {
+		margin: 0;
+	}
+
+	.slick-dots {
+		bottom: -10px !important;
 	}
 }
 

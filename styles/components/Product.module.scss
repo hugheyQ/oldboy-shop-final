@@ -8,6 +8,12 @@
 	background-color: white;
 	border-radius: 3px;
 
+	&.twoRowsSlider {
+		&:first-child {
+			margin-bottom: 1.7em;
+		}
+	}
+
 	.productImage {
 		// width: 210px;
 		height: 210px;
@@ -33,7 +39,7 @@
 	.productDetails {
 		display: flex;
 		flex-direction: column;
-		padding-top: 20px;
+		// padding-top: 20px;
 
 		.productBrand {
 			color: $lightGray3;
@@ -54,10 +60,13 @@
 		}
 
 		.productTitle {
-			font-size: 14px;
+			font-size: 13px;
 			font-weight: 700;
 			color: $blue2;
 			margin-bottom: 15px;
+			line-height: 20px;
+			display: block;
+			height: 40px;
 		}
 
 		.pricesBlock {
