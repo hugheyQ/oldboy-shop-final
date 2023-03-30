@@ -156,8 +156,8 @@ const ProductDetail = () => {
 			{
 				breakpoint: 575.98,
 				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 2,
+					slidesToShow: 1,
+					slidesToScroll: 1,
 					slidesPerRow: 1,
 				},
 			},
