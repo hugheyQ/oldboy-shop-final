@@ -182,6 +182,12 @@ const ProductDetail = () => {
 			setShow(false)
 		}
 	}
+
+	const handleLightboxOpen = index => {
+		setOpenLightbox(true)
+		setThumbnailIndex(index)
+	}
+
 	useEffect(() => {
 		handleScroll()
 		window.addEventListener('scroll', handleScroll)
@@ -261,8 +267,13 @@ const ProductDetail = () => {
 
 								<Slider {...settings1} className='product-thumbnails-slider'>
 									{thumbnails.map((thumbnail, i) => (
-										<div key={i} onClick={() => setOpenLightbox(true)}>
+										<div key={i} onClick={() => handleLightboxOpen(i)}>
 											<Image src={thumbnail.url} alt='' fill />
+											{thumbnail.type === 'video' && (
+												<div className={styles.playButton}>
+													<ImPlay3 />
+												</div>
+											)}
 										</div>
 									))}
 								</Slider>
@@ -271,6 +282,7 @@ const ProductDetail = () => {
 									plugins={[Video]}
 									open={openLightbox}
 									close={setOpenLightbox}
+									index={thumbnailIndex}
 									slides={[
 										{ src: '/images/1.jpg' },
 										{ src: '/images/2.jpg' },
