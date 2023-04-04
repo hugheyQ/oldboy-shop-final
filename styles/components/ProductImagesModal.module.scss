@@ -1,0 +1,96 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	// padding: 1em;
+	.header {
+		background-color: $lightGray;
+		display: flex;
+		position: relative;
+		padding: 0.5em 2em;
+		display: flex;
+		justify-content: center;
+		@media (max-width: 575.98px) {
+			padding: 1em;
+		}
+
+		.title {
+			font-weight: 700;
+			font-size: 1.1em;
+			text-transform: capitalize;
+			display: flex;
+			align-items: center;
+			color: $blue2;
+			font-size: 16px;
+			font-weight: 400;
+			column-gap: 1em;
+
+			.brand {
+				color: $gray;
+				position: relative;
+				font-weight: 700;
+				text-transform: uppercase;
+
+				&::after {
+					content: '®';
+					font-size: 16px !important;
+					position: absolute;
+					right: -8px;
+					top: 1px;
+				}
+			}
+		}
+	}
+
+	.body {
+		.tabBody {
+			min-height: 400px;
+
+			.videoPlayer {
+				margin-left: auto !important;
+				margin-right: auto !important;
+				border: 1px solid red;
+			}
+
+			.modalLeft {
+				.carousel {
+					.carousel-inner {
+						height: 100px;
+					}
+				}
+			}
+
+			.modalRight {
+				h4 {
+					color: $gray;
+					font-size: 16px;
+					font-weight: 700;
+					text-transform: uppercase;
+				}
+
+				.thumbnailsWrapper {
+					display: grid;
+					grid-template-columns: repeat(4, 80px);
+					gap: 1em;
+
+					.imageWrapper {
+						position: relative;
+						width: 80px;
+						height: 80px;
+						border: 3px solid $lightGray2;
+						cursor: pointer;
+
+						&.active {
+							border: 3px solid $blue2;
+							border-radius: 3px;
+							opacity: 0.5;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: 575.98px) {
+		width: 100% !important;
+	}
+}

@@ -6,6 +6,7 @@ import ComplementaryProduct from '@/components/ComplementaryProduct'
 import InputField from '@/components/InputField'
 import Layout from '@/components/Layout'
 import Product from '@/components/Product'
+import ProductImagesModal from '@/components/ProductImagesModal'
 import Rating from '@/components/Rating'
 import styles from '@/styles/pages/ProductDetails.module.scss'
 import data from '@/utils/data'
@@ -13,16 +14,13 @@ import { Arimo, Rajdhani } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import {
-	Button,
-	Col,
-	Container,
-	Offcanvas,
-	Row,
-} from 'react-bootstrap'
-import { AiOutlinePlayCircle } from 'react-icons/ai'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 import { BsFire } from 'react-icons/bs'
+import { ImPlay3 } from 'react-icons/im'
 import Slider from 'react-slick'
+import Lightbox from 'yet-another-react-lightbox'
+import Video from 'yet-another-react-lightbox/plugins/video'
+import 'yet-another-react-lightbox/styles.css'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
@@ -43,21 +41,21 @@ const discountPrice =
 
 const ProductDetail = () => {
 	const thumbnails = [
-		{ url: '/images/1.jpg', type: 'image' },
-		{ url: '/images/2.jpg', type: 'image' },
-		{ url: '/images/3.jpg', type: 'image' },
-		{ url: '/images/4.jpg', type: 'image' },
-		{ url: '/images/5.jpg', type: 'image' },
-		{ url: '/images/6.jpg', type: 'image' },
-		{ url: '/images/7.png', type: 'video' },
+		{ id: 1, url: '/images/1.jpg', type: 'image' },
+		{ id: 2, url: '/images/2.jpg', type: 'image' },
+		{ id: 3, url: '/images/3.jpg', type: 'image' },
+		{ id: 4, url: '/images/4.jpg', type: 'image' },
+		{ id: 5, url: '/images/5.jpg', type: 'image' },
+		{ id: 6, url: '/images/6.jpg', type: 'image' },
+		{ id: 7, url: '/images/7.png', type: 'video' },
 	]
 
 	const [selectedImage, setSelectedImage] = useState(0)
 	const [show, setShow] = useState(false)
-
-	const selectImage = index => {
-		setSelectedImage(index)
-	}
+	const [showModal, setShowModal] = useState(false)
+	const [thumbnail, setThumbnail] = useState({})
+	const [openLightbox, setOpenLightbox] = useState(false)
+	const [thumbnailIndex, setThumbnailIndex] = useState(0)
 
 	const settings1 = {
 		dots: true,
@@ -164,6 +162,18 @@ const ProductDetail = () => {
 		],
 	}
 
+	const handleCloseModal = () => setShowModal(false)
+
+	const handleThumbnailClick = (thumbnail, index) => {
+		setThumbnail(thumbnail)
+		setShowModal(true)
+		setThumbnailIndex(index)
+	}
+
+	const handleSelectImage = index => {
+		setSelectedImage(index)
+	}
+
 	const handleScroll = () => {
 		const scrollPosition = window.scrollY // => scroll position
 		if (scrollPosition > 800) {
@@ -182,6 +192,12 @@ const ProductDetail = () => {
 
 	return (
 		<Layout>
+			<ProductImagesModal
+				show={showModal}
+				handleClose={handleCloseModal}
+				thumbnail={thumbnail}
+				thumbnailIndex={thumbnailIndex}
+			/>
 			<div className={styles.mainWrapper}>
 				<section
 					className={`${styles.productDetailsWrapper} ${arimo.className}`}
@@ -202,7 +218,8 @@ const ProductDetail = () => {
 												selectedImage === i ? styles.active : ''
 											}`}
 											key={i}
-											onMouseOver={() => selectImage(i)}
+											onMouseOver={() => handleSelectImage(i)}
+											onClick={() => handleThumbnailClick(thumbnail, i)}
 										>
 											<Image
 												src={thumbnail.url}
@@ -216,13 +233,18 @@ const ProductDetail = () => {
 												<div
 													className={`${styles.playButton} ${styles.thumbnail}`}
 												>
-													<AiOutlinePlayCircle />
+													<ImPlay3 />
 												</div>
 											)}
 										</div>
 									))}
 								</div>
-								<div className={styles.productImageDisplay}>
+								<div
+									className={styles.productImageDisplay}
+									onClick={() =>
+										handleThumbnailClick(thumbnails[selectedImage], i)
+									}
+								>
 									<Image src={thumbnails[selectedImage].url} alt='' fill />
 									<div className={styles.statusWrapper}>
 										{product.bestSeller && <Badge type='seller' />}
@@ -232,18 +254,39 @@ const ProductDetail = () => {
 									</div>
 									{thumbnails[selectedImage].type === 'video' && (
 										<div className={styles.playButton}>
-											<AiOutlinePlayCircle />
+											<ImPlay3 />
 										</div>
 									)}
 								</div>
 
 								<Slider {...settings1} className='product-thumbnails-slider'>
 									{thumbnails.map((thumbnail, i) => (
-										<div key={i}>
+										<div key={i} onClick={() => setOpenLightbox(true)}>
 											<Image src={thumbnail.url} alt='' fill />
 										</div>
 									))}
 								</Slider>
+
+								<Lightbox
+									plugins={[Video]}
+									open={openLightbox}
+									close={setOpenLightbox}
+									slides={[
+										{ src: '/images/1.jpg' },
+										{ src: '/images/2.jpg' },
+										{ src: '/images/3.jpg' },
+										{ src: '/images/4.jpg' },
+										{ src: '/images/5.jpg' },
+										{ src: '/images/6.jpg' },
+										{
+											type: 'video',
+											width: 1280,
+											height: 720,
+											poster: '/images/7.png',
+											sources: [{ src: '/images/video.mp4', type: 'video/mp4' }],
+										},
+									]}
+								/>
 							</Col>
 
 							<Col xs={12} md={6} className={styles.right}>
@@ -297,21 +340,26 @@ const ProductDetail = () => {
 									<span>{product.stock}</span>
 								</div>
 
-								<div className={styles.quantity}>
-									<InputField
-										variant='number'
-										label='Quantity'
-										controlId='quantity'
-									/>
-								</div>
-
-								<Button
-									className={`${styles.addToCartButton} ${
-										rajdhani.className
-									} ${product?.stock === 0 && styles.outOfStock}`}
-								>
-									{product?.stock === 0 ? 'Out of stock' : 'Add to cart'}
-								</Button>
+								<Row>
+									<Col xs={5} className='d-flex align-items-end'>
+										<div className={styles.quantity}>
+											<InputField
+												variant='number'
+												label='Quantity'
+												controlId='quantity'
+											/>
+										</div>
+									</Col>
+									<Col xs={7} className='d-flex align-items-end'>
+										<Button
+											className={`${styles.addToCartButton} ${
+												rajdhani.className
+											} ${product?.stock === 0 && styles.outOfStock}`}
+										>
+											{product?.stock === 0 ? 'Out of stock' : 'Add to cart'}
+										</Button>
+									</Col>
+								</Row>
 							</Col>
 						</Row>
 					</Container>

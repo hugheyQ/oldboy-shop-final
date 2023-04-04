@@ -3,7 +3,7 @@
 .mainWrapper {
 	.addToCartButton {
 		width: 100%;
-		max-width: 240px;
+		max-width: 220px;
 		display: block;
 		color: white;
 		border: 1px solid $red;
@@ -14,7 +14,7 @@
 		font-weight: 700;
 		text-align: center;
 		transition: all 0.4s ease-in-out;
-		padding: 9px;
+		padding: 7px;
 
 		@media (max-width: 575.98px) {
 			max-width: unset;
@@ -36,7 +36,7 @@
 
 	.productDetailsWrapper {
 		padding-top: 4em;
-		padding-bottom: 4em;
+		padding-bottom: 0em;
 
 		@media (max-width: 767.98px) {
 			padding-top: 1em;
@@ -164,11 +164,11 @@
 				align-items: center;
 				justify-content: center;
 				background: transparent;
-				font-size: 50px;
-				color: rgba($color: #fff, $alpha: 0.7);
+				font-size: 40px;
+				color: white;
 
 				&.thumbnail {
-					font-size: 20px;
+					font-size: 12px;
 				}
 			}
 		}
@@ -303,9 +303,9 @@
 				}
 			}
 
-			.quantity {
-				margin-bottom: 2em;
-			}
+			// .quantity {
+			// 	margin-bottom: 2em;
+			// }
 		}
 	}
 
