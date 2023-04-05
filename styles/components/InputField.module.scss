@@ -32,6 +32,10 @@
 			&:hover {
 				background-color: $lightGray;
 			}
+
+			// &:focus {
+			// 	border: unset;
+			// }
 		}
 
 		input[type='number'] {

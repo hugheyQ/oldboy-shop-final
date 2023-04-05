@@ -1,0 +1,104 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	padding-top: 3em;
+	padding-bottom: 3em;
+	h2 {
+		font-size: 24px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: $gray;
+		margin-bottom: 1em;
+	}
+
+	.table {
+		thead {
+			background-color: $lightGray;
+			border-bottom: 1px solid $lightGray;
+			color: $lightGray3;
+			font-size: 12px;
+			text-transform: uppercase;
+			font-weight: 700;
+
+			tr {
+				th {
+					padding: 1em 2em;
+				}
+			}
+		}
+
+		tbody {
+			tr {
+				&:last-child {
+					border-bottom: 1px solid white;
+				}
+				td {
+					vertical-align: middle;
+
+					.productCard {
+						display: flex;
+						align-items: center;
+						column-gap: 1em;
+
+						.imageWrapper {
+							position: relative;
+							height: 130px;
+							width: 130px;
+							img {
+								object-fit: contain;
+							}
+						}
+
+						.productDetails {
+							display: flex;
+							flex-direction: column;
+
+							.brand {
+								color: $lightGray3;
+								font-size: 12px;
+								position: relative;
+								width: max-content;
+								margin-bottom: 8px;
+								text-transform: capitalize;
+								font-weight: 400;
+
+								&::after {
+									content: '®';
+									font-size: 16px !important;
+									position: absolute;
+									right: -16px;
+									top: -3px;
+								}
+							}
+
+							.title {
+								font-size: 12px;
+								font-weight: 700;
+								color: $blue2;
+								margin-bottom: 17px;
+								line-height: 20px;
+								display: block;
+								height: 40px;
+							}
+						}
+					}
+
+					.price,
+					.subtotal {
+						font-size: 15px;
+						font-weight: 700 !important;
+						color: $gray;
+					}
+
+					.deleteButton {
+						background-color: white;
+						color: $red;
+						padding: 0;
+						border: none;
+						font-size: 1.5em;
+					}
+				}
+			}
+		}
+	}
+}

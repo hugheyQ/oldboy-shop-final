@@ -3,9 +3,11 @@ import data from '@/utils/data'
 import { Arimo, Rajdhani } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { MdStarRate } from 'react-icons/md'
 import Badge from './Badge'
+import ItemAddedModal from './ItemAddedModal'
 import Rating from './Rating'
 
 const { products } = data
@@ -25,12 +27,28 @@ const arimo = Arimo({
 const Product = ({ product, variant, margin }) => {
 	const discountPrice =
 		product.price - (product.price * product.discount) / 100
+
+	const [show, setShow] = useState(false)
+	const [cartItem, setCartItem] = useState({})
+
+	const handleClose = () => setShow(false)
+	const handleShow = () => setShow(true)
+
+	const handleAddtoCart = product => {
+		handleShow()
+		setCartItem(product)
+	}
 	return (
 		<div
 			className={`${styles.mainWrapper} ${
 				variant === 'bordered' && 'border shadow'
 			} ${margin && styles.twoRowsSlider}`}
 		>
+			<ItemAddedModal
+				show={show}
+				handleClose={handleClose}
+				product={product}
+			/>
 			<div className={styles.productImage}>
 				<div
 					className={`${styles.statusWrapper} ${arimo.className} ${
@@ -68,13 +86,20 @@ const Product = ({ product, variant, margin }) => {
 						<span className={styles.price}>GH₵{product.price}</span>
 					)}
 				</div>
-				<Button
-					className={`${styles.addToCartButton} ${rajdhani.className} ${
-						product?.stock === 0 && styles.outOfStock
-					}`}
-				>
-					{product?.stock === 0 ? 'Out of stock' : 'Add to cart'}
-				</Button>
+				{product?.stock === 0 ? (
+					<Button
+						className={`${styles.addToCartButton} ${styles.outOfStock} ${rajdhani.className}`}
+					>
+						Out of stock
+					</Button>
+				) : (
+					<Button
+						className={`${styles.addToCartButton} ${rajdhani.className}`}
+						onClick={() => handleAddtoCart(product)}
+					>
+						Add to cart
+					</Button>
+				)}
 			</div>
 		</div>
 	)

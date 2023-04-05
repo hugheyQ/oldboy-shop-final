@@ -23,6 +23,18 @@
 		border: 3px solid white;
 		height: 35px;
 		width: 35px;
+		font-size: 1.2em;
+
+		@media (max-width: 991.98px) {
+			background-color: unset !important;
+			color: unset;
+			font-size: 1.2em;
+			border: none;
+			top: 9px;
+			right: 10px;
+			height: unset;
+			width: unset;
+		}
 
 		&:hover {
 			background-color: black !important;
