@@ -1,0 +1,129 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	display: flex;
+	column-gap: 1em;
+	border: 1px solid $lightGray2;
+	border-left: none;
+	border-right: none;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	align-items: flex-start;
+
+	.deleteButton {
+		background-color: white;
+		color: $red;
+		padding: 0;
+		border: none;
+		font-size: 1.3em;
+	}
+
+	&:first-child {
+		border-bottom: none;
+	}
+
+	.imageWrapper {
+		position: relative;
+		width: 130px;
+		height: 130px;
+	}
+
+	.productDetails {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		.brand {
+			color: $lightGray3;
+			font-size: 12px;
+			position: relative;
+			width: max-content;
+			text-transform: capitalize;
+			font-weight: 400;
+			margin-bottom: 0.5em;
+
+			&::after {
+				content: '®';
+				font-size: 16px !important;
+				position: absolute;
+				right: -16px;
+				top: -3px;
+			}
+		}
+
+		.title {
+			font-size: 12px;
+			font-weight: 700;
+			color: $blue2;
+			line-height: 20px;
+			display: flex;
+			margin-bottom: 1.9em;
+		}
+
+		.bottom {
+			@media (max-width: 767.98px) {
+				row-gap: 1em;
+			}
+
+			.priceBlock {
+				@media (max-width: 767.98px) {
+					display: flex;
+					align-items: center;
+
+					span:first-child {
+						flex: 1;
+					}
+
+					span:last-child {
+						flex: 1;
+					}
+				}
+			}
+
+			.quantityBlock {
+				@media (max-width: 767.98px) {
+					display: flex;
+					align-items: center;
+
+					span:first-child {
+						flex: 1;
+					}
+
+					div {
+						flex: 1;
+					}
+				}
+			}
+
+			.totalBlock {
+				@media (max-width: 767.98px) {
+					display: flex;
+					align-items: center;
+
+					span:first-child {
+						flex: 1;
+					}
+
+					span:last-child {
+						flex: 1;
+					}
+				}
+			}
+		}
+
+		.label {
+			font-size: 12px;
+			color: $gray;
+			font-weight: 700;
+			opacity: 0.8;
+			margin-bottom: 0.4em;
+			display: block;
+		}
+
+		.price {
+			font-size: 15px;
+			font-weight: 700;
+			color: $gray;
+		}
+	}
+}

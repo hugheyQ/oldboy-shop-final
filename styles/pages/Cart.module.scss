@@ -3,6 +3,45 @@
 .mainWrapper {
 	padding-top: 3em;
 	padding-bottom: 3em;
+
+	.checkoutLink,
+	.cartLink {
+		width: 100%;
+		font-size: 16px;
+		display: block;
+		font-weight: 700;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 8px 0;
+		border-radius: 3px;
+		transition: all 0.4s ease-in-out;
+		box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	}
+
+	.checkoutLink {
+		background-color: $red;
+		color: white !important;
+		border: 1px solid $red;
+
+		&:hover {
+			background-color: white;
+			border: 1px solid $red;
+			color: $red !important;
+		}
+	}
+
+	.cartLink {
+		background-color: white;
+		color: $gray !important;
+		border: 1px solid #b6b6b6;
+
+		&:hover {
+			background-color: #383e47;
+			border: 1px solid #383e47;
+			color: white !important;
+		}
+	}
+
 	h2 {
 		font-size: 24px;
 		font-weight: 700;
@@ -11,92 +50,209 @@
 		margin-bottom: 1em;
 	}
 
-	.table {
-		thead {
-			background-color: $lightGray;
-			border-bottom: 1px solid $lightGray;
-			color: $lightGray3;
-			font-size: 12px;
-			text-transform: uppercase;
-			font-weight: 700;
+	.left {
+		@media (max-width: 1199.98px) {
+			margin-bottom: 2em;
+		}
 
-			tr {
-				th {
-					padding: 1em 2em;
+		.table {
+			thead {
+				background-color: $lightGray;
+				border-bottom: 1px solid $lightGray;
+				color: $lightGray3;
+				font-size: 12px;
+				text-transform: uppercase;
+				font-weight: 700;
+
+				tr {
+					th {
+						padding: 1em 2em;
+					}
+				}
+			}
+
+			tbody {
+				tr {
+					border-bottom: 1px solid $lightGray;
+					&:last-child {
+						border-bottom: 1px solid white;
+					}
+					td {
+						vertical-align: middle;
+						position: relative;
+
+						.productCard {
+							display: flex;
+							align-items: center;
+							column-gap: 1em;
+
+							.imageWrapper {
+								position: relative;
+								height: 130px;
+								width: 130px;
+								img {
+									object-fit: contain;
+								}
+							}
+
+							.productDetails {
+								display: flex;
+								flex-direction: column;
+
+								.brand {
+									color: $lightGray3;
+									font-size: 12px;
+									position: relative;
+									width: max-content;
+									margin-bottom: 8px;
+									text-transform: capitalize;
+									font-weight: 400;
+
+									&::after {
+										content: '®';
+										font-size: 16px !important;
+										position: absolute;
+										right: -16px;
+										top: -3px;
+									}
+								}
+
+								.title {
+									font-size: 12px;
+									font-weight: 700;
+									color: $blue2;
+									margin-bottom: 17px;
+									line-height: 20px;
+									display: block;
+									height: 40px;
+								}
+							}
+						}
+
+						.price,
+						.subtotal {
+							font-size: 15px;
+							font-weight: 700 !important;
+							color: $gray;
+						}
+
+						.deleteButton {
+							background-color: white;
+							color: $red;
+							padding: 0;
+							border: none;
+							font-size: 1.3em;
+							position: absolute;
+							right: 0;
+							top: 56px;
+						}
+					}
 				}
 			}
 		}
 
-		tbody {
-			tr {
-				&:last-child {
-					border-bottom: 1px solid white;
+		.buttons {
+			display: flex;
+			align-items: center;
+			max-width: 600px;
+			column-gap: 1.3em;
+			margin-top: 3em;
+
+			@media (max-width: 575.98px) {
+				flex-direction: column;
+				row-gap: 1em;
+			}
+		}
+	}
+
+	.right {
+		.orderSummaryWrapper {
+			color: $gray;
+			// position: sticky;
+			// top: 0;
+
+			@media (max-width: 1199.98px) {
+				max-width: 400px;
+			}
+
+			@media (max-width: 767.98px) {
+				max-width: unset;
+			}
+
+			.title {
+				font-size: 20px;
+				font-weight: 700;
+				text-transform: uppercase;
+				margin-bottom: 0.4em;
+				display: inline-block;
+			}
+			.subTotal {
+				border: 1px solid $lightGray2;
+				border-left: none;
+				border-right: none;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding-top: 0.8em;
+				padding-bottom: 0.8em;
+
+				.label {
+					font-size: 12px;
+					font-weight: 700;
 				}
-				td {
-					vertical-align: middle;
+				.amount {
+					font-size: 14.5px;
+					font-weight: 700;
+				}
+			}
+			.grandTotal {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding-top: 0.8em;
+				padding-bottom: 0.8em;
+				margin-bottom: 0.7em;
+				.label {
+					font-size: 16px;
+					font-weight: 700;
+				}
+				.amount {
+					font-size: 18px;
+					font-weight: 700;
+				}
+			}
 
-					.productCard {
-						display: flex;
-						align-items: center;
-						column-gap: 1em;
+			.orderSecurity {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				column-gap: 0.5em;
+				margin-top: 3em;
+				margin-bottom: 1.3em;
 
-						.imageWrapper {
-							position: relative;
-							height: 130px;
-							width: 130px;
-							img {
-								object-fit: contain;
-							}
-						}
+				svg {
+					font-size: 1.7em;
+					opacity: 0.7;
+				}
 
-						.productDetails {
-							display: flex;
-							flex-direction: column;
+				p {
+					font-size: 12px;
+					flex-wrap: 400;
+					text-align: center;
+					margin: 0;
+					font-style: italic;
+				}
+			}
 
-							.brand {
-								color: $lightGray3;
-								font-size: 12px;
-								position: relative;
-								width: max-content;
-								margin-bottom: 8px;
-								text-transform: capitalize;
-								font-weight: 400;
+			.needHelp {
+				font-size: 12px;
+				flex-wrap: 400;
+				text-align: center;
+				margin: 0 auto;
+				max-width: 290px;
 
-								&::after {
-									content: '®';
-									font-size: 16px !important;
-									position: absolute;
-									right: -16px;
-									top: -3px;
-								}
-							}
-
-							.title {
-								font-size: 12px;
-								font-weight: 700;
-								color: $blue2;
-								margin-bottom: 17px;
-								line-height: 20px;
-								display: block;
-								height: 40px;
-							}
-						}
-					}
-
-					.price,
-					.subtotal {
-						font-size: 15px;
-						font-weight: 700 !important;
-						color: $gray;
-					}
-
-					.deleteButton {
-						background-color: white;
-						color: $red;
-						padding: 0;
-						border: none;
-						font-size: 1.5em;
-					}
+				a {
+					font-weight: 700;
 				}
 			}
 		}

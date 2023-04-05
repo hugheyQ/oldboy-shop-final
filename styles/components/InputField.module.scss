@@ -21,28 +21,32 @@
 			background: transparent;
 			color: $gray;
 			border-radius: 3px;
-			font-size: 1.5em;
+			font-size: 1.3em;
 			padding: 0;
-			padding-left: 0.3em;
-			padding-right: 0.3em;
+			padding-left: 0.2em;
+			padding-right: 0.2em;
 			transition: all 0.4s ease-in-out;
 			border: 1px solid rgb(204, 207, 214);
 			z-index: 10;
+			display: flex;
+			align-items: center;
 
 			&:hover {
 				background-color: $lightGray;
 			}
 
-			// &:focus {
-			// 	border: unset;
-			// }
+			&:focus,
+			&:active {
+				color: $gray;
+				border: 1px solid rgb(204, 207, 214);
+			}
 		}
 
 		input[type='number'] {
 			font-size: 12px !important;
 			font-weight: 400 !important;
-			padding-top: 10px !important;
-			padding-bottom: 10px !important;
+			padding-top: 9px !important;
+			padding-bottom: 9px !important;
 			color: #666666 !important;
 			border: 1px solid rgb(204, 207, 214);
 			border-left: none;
