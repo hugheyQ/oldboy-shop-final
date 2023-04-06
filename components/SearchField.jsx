@@ -35,7 +35,7 @@ const SearchField = ({
 					<BsSearch />
 				</InputGroup.Text>
 				<Form.Control
-					placeholder='What are you looking for...'
+					placeholder='What are you looking for...1'
 					aria-label='Product search'
 					aria-describedby='searchField'
 					className={`${styles.searchInput} ${arimo.className}`}
