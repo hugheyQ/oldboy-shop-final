@@ -168,11 +168,13 @@
 	.right {
 		.orderSummaryWrapper {
 			color: $gray;
+			padding-left: 1.5em;
 			// position: sticky;
 			// top: 0;
 
 			@media (max-width: 1199.98px) {
 				max-width: 400px;
+				padding-left: unset;
 			}
 
 			@media (max-width: 767.98px) {
