@@ -34,7 +34,7 @@ const cart = () => {
 					</h2>
 
 					<Row>
-						<Col xs={12} xl={8} className={styles.left}>
+						<Col xs={12} xl={9} className={styles.left}>
 							<Table
 								className={`${styles.table} ${arimo.className} d-none d-lg-block`}
 							>
@@ -109,7 +109,7 @@ const cart = () => {
 						</Col>
 						<Col
 							xs={12}
-							xl={4}
+							xl={3}
 							className={`${styles.right} ${arimo.className} position-relative`}
 						>
 							<div className={styles.orderSummaryWrapper}>
