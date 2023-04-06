@@ -1,4 +1,5 @@
 import CartPageItem from '@/components/CartPageItem'
+import DeleteButton from '@/components/DeleteButton'
 import InputField from '@/components/InputField'
 import Layout from '@/components/Layout'
 import styles from '@/styles/pages/Cart.module.scss'
@@ -7,8 +8,7 @@ import { Arimo, Rajdhani } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button, Col, Container, Row, Table } from 'react-bootstrap'
-import { MdClose, MdOutlineSecurity } from 'react-icons/md'
-import { Tooltip } from 'react-tooltip'
+import { MdOutlineSecurity } from 'react-icons/md'
 
 const { products } = data
 
@@ -80,17 +80,7 @@ const cart = () => {
 												<span className={styles.subtotal}>
 													GH₵{product.price}
 												</span>
-												<Button
-													className={styles.deleteButton}
-													data-tooltip-id='delete-tooltip'
-													data-tooltip-content='Delete'
-												>
-													<MdClose />
-												</Button>
-												<Tooltip
-													id='delete-tooltip'
-													style={{ fontSize: '12px', padding: '.5em' }}
-												/>
+												<DeleteButton />
 											</td>
 										</tr>
 									))}

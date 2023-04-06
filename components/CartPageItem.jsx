@@ -4,6 +4,7 @@ import Image from 'next/image'
 import InputField from './InputField'
 import { MdClose } from 'react-icons/md'
 import { Button, Col, Row } from 'react-bootstrap'
+import DeleteButton from './DeleteButton'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
@@ -42,9 +43,7 @@ const CartPageItem = ({ product }) => {
 					</Col>
 				</Row>
 			</div>
-			<Button className={styles.deleteButton}>
-				<MdClose />
-			</Button>
+			<DeleteButton />
 		</div>
 	)
 }

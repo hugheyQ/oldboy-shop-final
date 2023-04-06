@@ -1,0 +1,23 @@
+@import '@/styles/variables.module.scss';
+
+.deleteButton {
+	background-color: white;
+	color: $red;
+	padding: 0;
+	border: none;
+	font-size: 1.3em;
+	position: absolute;
+	right: 0;
+	top: 56px;
+
+	@media (max-width: 991.98px) {
+		position: relative;
+		top: unset;
+		right: unset;
+	}
+
+	&:hover {
+		background-color: white !important;
+		color: $red;
+	}
+}

@@ -10,14 +10,6 @@
 	padding-bottom: 2em;
 	align-items: flex-start;
 
-	.deleteButton {
-		background-color: white;
-		color: $red;
-		padding: 0;
-		border: none;
-		font-size: 1.3em;
-	}
-
 	&:first-child {
 		border-bottom: none;
 	}
