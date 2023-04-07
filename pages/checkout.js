@@ -23,7 +23,7 @@ const arimo = Arimo({
 	weight: ['400', '500', '600', '700'],
 })
 
-const checkout = () => {
+const Checkout = () => {
 	const [customerFormIndex, setCustomerFormIndex] = useState(0)
 
 	return (
@@ -211,4 +211,4 @@ const checkout = () => {
 		</Layout>
 	)
 }
-export default checkout
+export default Checkout
