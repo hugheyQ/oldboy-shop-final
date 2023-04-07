@@ -327,6 +327,8 @@
 			width: 100%;
 
 			.navigationItem {
+				display: flex;
+				align-items: center;
 				&:hover .navigationLink {
 					color: $red !important;
 				}

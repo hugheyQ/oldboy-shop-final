@@ -2,7 +2,7 @@
 
 .mainWrapper {
 	.label {
-		font-size: 14px;
+		font-size: 12px;
 		color: $gray;
 		font-weight: 700;
 		cursor: pointer;
@@ -66,6 +66,7 @@
 		border: 1px solid rgb(204, 207, 214);
 		transition: all 0.4s ease-in-out;
 		color: #666666;
+		font-size: 15px;
 
 		&:focus {
 			box-shadow: none;

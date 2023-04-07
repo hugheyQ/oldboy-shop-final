@@ -1,0 +1,127 @@
+@import '@/styles/variables.module.scss';
+
+.mainWrapper {
+	.left {
+		.checkoutSections {
+			.checkoutSection {
+				border-bottom: none;
+
+				.checkoutSectionTitle {
+					button {
+						font-size: 20px !important;
+						box-shadow: none !important;
+						font-weight: 700;
+						padding-left: 0;
+
+						&:not(.collapsed) {
+							color: $gray;
+							background-color: white !important;
+
+							&::after {
+								background-image: none;
+							}
+						}
+					}
+				}
+
+				.checkoutSectionBody {
+					padding: 0;
+					padding-bottom: 2em;
+					.grayButton {
+						width: 100%;
+						font-size: 16px;
+						font-weight: 700;
+						text-transform: uppercase;
+						text-align: center;
+						padding: 10px 0;
+						border-radius: 3px;
+						transition: all 0.4s ease-in-out;
+						background-color: $gray;
+						color: white;
+						border: 1px solid $gray;
+
+						&:hover {
+							background-color: white;
+							color: $gray;
+						}
+					}
+
+					.whiteButton {
+						width: 100%;
+						font-size: 16px;
+						font-weight: 700;
+						text-transform: uppercase;
+						text-align: center;
+						padding: 10px 0;
+						border-radius: 3px;
+						transition: all 0.4s ease-in-out;
+						background-color: white;
+						color: $gray;
+						border: 1px solid $gray;
+					}
+
+					form {
+						display: none;
+
+						&.active {
+							display: block;
+						}
+					}
+
+					.firstForm {
+						.formRight {
+							display: flex;
+							align-items: flex-end;
+						}
+
+						p {
+							margin: 0;
+							font-size: 12px;
+							color: $gray;
+							display: flex;
+							align-items: center;
+							column-gap: 0.3em;
+
+							.signInButton {
+								background-color: white !important;
+								border: none !important;
+								display: inline;
+								padding: 0;
+								font-size: 12px;
+								color: $blue2;
+							}
+						}
+					}
+
+					.secondForm {
+						.forgotPasswordLink {
+							font-size: 12px;
+							color: $blue2;
+						}
+
+						.createAccountButton {
+							background-color: white !important;
+							border: none !important;
+							display: inline;
+							padding: 0;
+							font-size: 12px;
+							color: #0b6ee3;
+						}
+
+						.buttons {
+							display: flex;
+							column-gap: 1em;
+						}
+					}
+
+					.thirdForm {
+						.buttons {
+							display: flex;
+							column-gap: 1em;
+						}
+					}
+				}
+			}
+		}
+	}
+}

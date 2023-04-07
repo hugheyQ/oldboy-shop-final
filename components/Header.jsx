@@ -259,9 +259,9 @@ const Header = () => {
 				<Container className='position-relative d-flex align-items-center justify-content-between'>
 					<Nav className={styles.navigation}>
 						<Nav.Item className={styles.navigationItem}>
-							<Nav.Link href='/' className={styles.navigationLink}>
+							<Link href='/' className={styles.navigationLink}>
 								Home
-							</Nav.Link>
+							</Link>
 						</Nav.Item>
 						<Nav.Item className={styles.navigationItem}>
 							<Nav.Link href='#' className={styles.navigationLink}>
@@ -287,9 +287,9 @@ const Header = () => {
 										<h2 className={rajdhani.className}>{subCategory.title}</h2>
 										<Nav className={styles.subCategoryLinks}>
 											{subCategory.links.map((link, i) => (
-												<Nav.Link key={i} href={`/${link.slug}`}>
+												<Link key={i} href={`/products/${link.slug}`}>
 													{link.title}
-												</Nav.Link>
+												</Link>
 											))}
 										</Nav>
 									</div>
@@ -309,9 +309,9 @@ const Header = () => {
 										<h2 className={rajdhani.className}>{subCategory.title}</h2>
 										<Nav className={styles.subCategoryLinks}>
 											{subCategory.links.map((link, i) => (
-												<Nav.Link key={i} href={`/${link.slug}`}>
+												<Link key={i} href={`/products/${link.slug}`}>
 													{link.title}
-												</Nav.Link>
+												</Link>
 											))}
 										</Nav>
 									</div>
@@ -319,19 +319,19 @@ const Header = () => {
 							</div>
 						</Nav.Item>
 						<Nav.Item className={styles.navigationItem}>
-							<Nav.Link href='#' className={styles.navigationLink}>
-								Flash Deal
-							</Nav.Link>
+							<Link href='/products' className={styles.navigationLink}>
+								Flash Deals
+							</Link>
 						</Nav.Item>
 						<Nav.Item className={styles.navigationItem}>
-							<Nav.Link href='#' className={styles.navigationLink}>
+							<Link href='/contact-us' className={styles.navigationLink}>
 								Contact Us
-							</Nav.Link>
+							</Link>
 						</Nav.Item>
 						<Nav.Item className={styles.navigationItem}>
-							<Nav.Link href='#' className={styles.navigationLink}>
+							<Link href='/blogs' className={styles.navigationLink}>
 								Blog
-							</Nav.Link>
+							</Link>
 						</Nav.Item>
 					</Nav>
 				</Container>
