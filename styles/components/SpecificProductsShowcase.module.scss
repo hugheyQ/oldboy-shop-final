@@ -28,7 +28,7 @@
 	color: white;
 
 	@media (max-width: 991.98px) {
-		left: 30px;
+		left: 20px;
 		top: 80px;
 	}
 
@@ -40,13 +40,17 @@
 		font-size: 30px;
 		font-weight: 700;
 		text-transform: uppercase;
-		margin-bottom: 0.6em;
+		margin-bottom: 0.5em;
+
+		@media (max-width: 991.98px) {
+			font-size: 20px;
+		}
 	}
 
 	.navigation {
 		flex-direction: column;
 		align-items: flex-start;
-		row-gap: 1em;
+		row-gap: 0.5em;
 		margin-bottom: 1.6em;
 
 		.navigationLink {

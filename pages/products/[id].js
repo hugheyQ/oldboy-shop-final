@@ -248,7 +248,10 @@ const ProductDetail = () => {
 								<div
 									className={styles.productImageDisplay}
 									onClick={() =>
-										handleThumbnailClick(thumbnails[selectedImage], i)
+										handleThumbnailClick(
+											thumbnails[selectedImage],
+											selectedImage
+										)
 									}
 								>
 									<Image src={thumbnails[selectedImage].url} alt='' fill />

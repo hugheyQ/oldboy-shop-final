@@ -98,7 +98,8 @@ ul {
 
 .homepage-banner {
 	.carousel-item {
-		height: calc(100vh - 189.4px);
+		// height: calc(100vh - 189.4px);
+		height: 600px;
 		position: relative;
 
 		@media (max-width: 991.98px) {
@@ -611,7 +612,7 @@ ul {
 	div {
 		position: relative;
 		width: 100%;
-		height: 480px;
+		height: 470px;
 		margin: 0;
 		border-radius: 3px;
 		overflow: hidden;

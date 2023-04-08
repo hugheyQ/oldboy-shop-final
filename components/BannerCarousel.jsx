@@ -4,36 +4,15 @@ import data from '@/utils/data'
 import Image from 'next/image'
 import { Arimo, Rajdhani } from 'next/font/google'
 import Link from 'next/link'
-import CustomLink from './CustomLink'
 
 const rajdhani = Rajdhani({
 	subsets: ['latin'],
-	weight: [
-		// '100',
-		// '200',
-		'300',
-		'400',
-		'500',
-		'600',
-		'700',
-		// '800',
-		// '900',
-	],
+	weight: ['300', '400', '500', '600', '700'],
 })
 
 const arimo = Arimo({
 	subsets: ['latin'],
-	weight: [
-		// '100',
-		// '200',
-		// '300',
-		'400',
-		'500',
-		'600',
-		'700',
-		// '800',
-		// '900',
-	],
+	weight: ['400', '500', '600', '700'],
 })
 
 const { carouselItems } = data
